@@ -1,7 +1,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #064518;">
-        <a class="navbar-brand font-weight-bold" href="<?php echo base_url('Raffle'); ?>">
+        <a class="navbar-brand font-weight-bold" href="<?php echo base_url('Raffle2'); ?>">
             <img src="<?php echo base_url('img/ncf-logo.png'); ?>" width="30" height="30" class="d-inline-block align-top" alt="ncf logo">
             NAGA COLLEGE FOUNDATION, INC.
         </a>
@@ -29,12 +29,6 @@
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addSegment"><i class="fa fa-plus mr-2"></i>Add</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#removeSegment"><i class="fas fa-remove mr-2"></i>Remove</a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_add_player">Add Player</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" onclick="reset()">Reset</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -84,13 +78,12 @@
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                                        <table id="player_table" class="table table-sm table-striped table-responsive">
+                                        <table id="player_table" class="table table-sm table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Players</th>
                                                     <th>Type</th>
-                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="display_player">
@@ -102,8 +95,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th colspan="2"><center>Winners</center></th>
-                                                    <th><center>Action</center></th>
+                                                    <th>Winners</th>
+                                                    <th>Type</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="display_winner">

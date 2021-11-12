@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Raffle extends CI_Controller
+class Raffle2 extends CI_Controller
 {
     function __construct()
     {
@@ -12,17 +12,9 @@ class Raffle extends CI_Controller
     public function index()
     {
         $typex['typex'] = $this->database->show_role();
-        $this->load->view('header');
-        $this->load->view('index', $typex);
-        $this->load->view('footer');
-    }
-
-    public function index2()
-    {
-        $typex['typex'] = $this->database->show_role();
-        $this->load->view('header');
+        $this->load->view('header2');
         $this->load->view('index2', $typex);
-        $this->load->view('footer');
+        $this->load->view('footer2');
     }
 
     function display_player_list()
