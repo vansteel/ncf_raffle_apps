@@ -15,7 +15,7 @@ class Database extends CI_Model
 
     function display_winner_list()
     {
-        $query = $this->db->query("SELECT w.winner_id, p.player_name, t.type_code FROM winner w JOIN player p USING (player_id) JOIN typex t USING (type_id)");
+        $query = $this->db->query("SELECT w.winner_id, p.player_name, t.type_code FROM winner w JOIN player p USING (player_id) JOIN typex t USING (type_id) ORDER BY winner_id");
         return $query->result();
     }
 
@@ -62,5 +62,71 @@ class Database extends CI_Model
         $result = $this->db->query("INSERT INTO player(player_name,type_id,userx_id)
             VALUES ('$player_name','$type_id','1')");
         return $result;
+    }
+
+    function select_random_segment1()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '1' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment2()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '2' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment3()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '3' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment4()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '4' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment5()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '5' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment6()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '6' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment7()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '7' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment8()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '8' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment9()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '9' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function select_random_segment10()
+    {
+        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_code FROM player p, typex t WHERE p.player_id NOT IN(SELECT player_id FROM winner) AND p.type_id = '10' AND p.type_id = t.type_id ORDER BY rand() LIMIT 1");
+        return $query->result();
+    }
+
+    function save_winner()
+    {
+        $player_id = $this->input->post('player_id');
+        $query = $this->db->query("INSERT INTO winner(player_id,userx_id) VALUES ('$player_id','1');");
     }
 }

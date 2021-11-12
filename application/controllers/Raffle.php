@@ -59,4 +59,70 @@ class Raffle extends CI_Controller
         echo json_encode($data);
     }
 
+    function select_random_segment1()
+    {
+        $data = $this->database->select_random_segment1();
+        echo json_encode($data);
+    }
+
+    function select_random_segment2()
+    {
+        $data = $this->database->select_random_segment2();
+        echo json_encode($data);
+    }
+
+    function select_random_segment3()
+    {
+        $data = $this->database->select_random_segment3();
+        echo json_encode($data);
+    }
+
+    function select_random_segment4()
+    {
+        $data = $this->database->select_random_segment4();
+        echo json_encode($data);
+    }
+
+    function select_random_segment5()
+    {
+        $data = $this->database->select_random_segment5();
+        echo json_encode($data);
+    }
+
+    function select_random_segment6()
+    {
+        $data = $this->database->select_random_segment6();
+        echo json_encode($data);
+    }
+
+    function select_random_segment7()
+    {
+        $data = $this->database->select_random_segment7();
+        echo json_encode($data);
+    }
+
+    function select_random_segment8()
+    {
+        $data = $this->database->select_random_segment8();
+        echo json_encode($data);
+    }
+
+    function select_random_segment9()
+    {
+        $data = $this->database->select_random_segment9();
+        echo json_encode($data);
+    }
+
+    function select_random_segment10()
+    {
+        $data = $this->database->select_random_segment10();
+        echo json_encode($data);
+    }
+
+    function save_winner()
+    {
+        $data = $this->database->save_winner();
+        echo json_encode($data);
+    }
+
 }

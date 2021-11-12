@@ -259,4 +259,224 @@
     </div>
 </div>
 
+<!-- Modal for CCS/COE/CAS -->
+<div class="modal fade" id="segment1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>CSS - COE - CAS</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment1()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for CTED/CTF -->
+<div class="modal fade" id="segment2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>CTED - CTF</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment2()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for SHS -->
+<div class="modal fade" id="segment3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>SHS</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment3()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for CCJE -->
+<div class="modal fade" id="segment4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>CCJE</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment4()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for GS -->
+<div class="modal fade" id="segment5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>GS</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment5()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for CBA -->
+<div class="modal fade" id="segment6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>CBA</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment6()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for CHS -->
+<div class="modal fade" id="segment7" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>CHS</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment7()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for CHS -->
+<div class="modal fade" id="segment8" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>College EMP</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment8()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for CHS -->
+<div class="modal fade" id="segment9" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>NTP EMP</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment9()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for CHS -->
+<div class="modal fade" id="segment10" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Selecting Player From</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>BED/GS/ICD EMP</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="select_random_segment10()">Draw</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for selecting random player -->
+<div class="modal fade" id="mymodal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title " id="mymodal">Congratulations to...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-white">
+                <div id="modal_table1">
+                </div>
+            </div>
+            <div class="modal-footer bg-light">
+                <button type="button" onclick="savewinner()" class="btn btn-success text-center">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ===== /This is the Modal ===== -->

@@ -179,16 +179,36 @@
             'type': 'spinToStop', // Type of animation.
             'duration': 5, // How long the animation is to take in seconds.
             'spins': 8, // The number of complete 360 degree rotations the wheel is to do.
-            'callbackFinished': 'alertPrize()'
+            'callbackFinished': alertPrize
         }
     });
 
-    function alertPrize() {
-        // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
-        let winningSegment = theWheel.getIndicatedSegment();
-
-        // Basic alert of the segment text which is the prize name.
-        alert("You have won " + winningSegment.text + "!");
+    function alertPrize(indicatedSegment) {
+        if (indicatedSegment.text == 'CCS/COE/CAS') {
+            $('#segment1').modal('show');
+        } else if (indicatedSegment.text == 'CTED/CTF') {
+            $('#segment2').modal('show');
+        } else if (indicatedSegment.text == 'SHS') {
+            $('#segment3').modal('show');
+        } else if (indicatedSegment.text == 'CCJE') {
+            $('#segment4').modal('show');
+        } else if (indicatedSegment.text == 'GS') {
+            $('#segment5').modal('show');
+        } else if (indicatedSegment.text == 'CBA') {
+            $('#segment6').modal('show');
+        } else if (indicatedSegment.text == 'CHS') {
+            $('#segment7').modal('show');
+        }
+        else if (indicatedSegment.text == 'College EMP') {
+            $('#segment8').modal('show');
+        }
+        else if (indicatedSegment.text == 'NTP EMP') {
+            $('#segment9').modal('show');
+        }
+        else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
+            $('#segment10').modal('show');
+        }
+        
     }
     //Add section
     function addStudents() {
@@ -221,6 +241,7 @@
             }, 3);
             theWheel.draw(); // Render changes.
         }
+
         function add4() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
@@ -230,6 +251,7 @@
             }, 4);
             theWheel.draw(); // Render changes.
         }
+
         function add5() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
@@ -239,6 +261,7 @@
             }, 5);
             theWheel.draw(); // Render changes.
         }
+
         function add6() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
@@ -248,6 +271,7 @@
             }, 6);
             theWheel.draw(); // Render changes.
         }
+
         function add7() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
@@ -492,6 +516,596 @@
     function clearuser() {
         $('#player_namex').val('');
         $('#type_id1').val('');
+    }
+
+    //Select random player from segment 1
+    function select_random_segment1() {
+        $('#segment1').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment1'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 2
+    function select_random_segment2() {
+        $('#segment2').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment2'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 3
+    function select_random_segment3() {
+        $('#segment3').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment3'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 4
+    function select_random_segment4() {
+        $('#segment4').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment4'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 5
+    function select_random_segment5() {
+        $('#segment5').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment5'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 6
+    function select_random_segment6() {
+        $('#segment6').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment6'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 7
+    function select_random_segment7() {
+        $('#segment7').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment7'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 8
+    function select_random_segment8() {
+        $('#segment8').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment8'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 9
+    function select_random_segment9() {
+        $('#segment9').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment9'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Select random player from segment 10
+    function select_random_segment10() {
+        $('#segment10').modal('hide');
+        $('#mymodal1').modal('show');
+        for (var time = 0; time < 35; time++) {
+            var interval = 0;
+            start();
+
+            function start() {
+                setTimeout(function() {
+                    $.ajax({
+                        type: "ajax",
+                        url: "<?php echo base_url('Raffle/select_random_segment10'); ?>",
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            var output;
+                            for (var i = 0; i < data.length; i++) {
+                                output += '<tr id="' + data[i].player_id + '">';
+                                output += '<td>';
+                                output += '<form id="savewinnerform" method="post" class="">';
+                                output += '<div class="form-row style="font-size:24px;"">';
+                                output += '<div class="col-1">';
+                                output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_player_id" value="' + data[i].player_id + '" readonly >';
+                                output += '</div>';
+                                output += '<div class="col-9">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
+                                output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
+                                output += '</div>';
+                                output += '</form>';
+                                output += '</td>';
+                                output += '</tr>';
+                            }
+                            $('#modal_table1').html(output);
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        }
+                    });
+                    setTimeout(function() {
+                        interval = 60;
+                        setInterval(function() {}, interval = 1000);
+                    }, interval = 1000)
+                })
+            }
+        }
+
+    }
+
+    //Save selected random player in winner list
+    function savewinner() {
+        var player_id = $('#save_player_id').val();
+        $.ajax({
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                player_id: player_id
+            },
+            url: "<?php echo base_url('Raffle/save_winner'); ?>",
+            success: function(data) {
+                winner_list();
+                $('#mymodal1').modal('hide');
+                $('#mymodal2').modal('hide');
+                $('#mymodal3').modal('hide');
+                $('#mymodal4').modal('hide');
+                $('#mymodal5').modal('hide');
+                $('#mymodal6').modal('hide');
+                $('#mymodal7').modal('hide');
+            },
+            error: function(data) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+            }
+        });
     }
 </script>
 
