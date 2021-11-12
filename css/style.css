@@ -6,7 +6,11 @@
 }
 
 #prizePointer{
-    margin-left: 243px;
+    margin-left: 45.5%;
+}
+
+#display_winner tr td{
+    font-size: 16px;
 }
 
 

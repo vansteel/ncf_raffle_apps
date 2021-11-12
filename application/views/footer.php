@@ -17,7 +17,7 @@
                     output += '<td>' + data[i].player_id + '</td>';
                     output += '<td>' + data[i].player_name + '</td>';
                     output += '<td>' + data[i].type_code + '</td>';
-                    output += '<td><a href="javascript:void(0);" class="updateplayer ml-3" data-player_id="' + data[i].player_id + '" data-player_name="' + data[i].player_name + '" data-type_id="' + data[i].type_id + '"> <i class="fa fa-edit mr-2 funcbtn"></i></a><a href="javascript:void(0);" class="deleteplayer" data-player_id="' + data[i].player_id + '"><i class="fa fa-trash-o text-danger"></i></a></td>';
+                    output += '<td><a href="javascript:void(0);" class="updateplayer ml-1" data-player_id="' + data[i].player_id + '" data-player_name="' + data[i].player_name + '" data-type_id="' + data[i].type_id + '"> <i class="fa fa-edit mr-1"></i></a><a href="javascript:void(0);" class="deleteplayer" data-player_id="' + data[i].player_id + '"><i class="fa fa-trash-o text-danger"></i></a></td>';
                     output += '</tr>';
                 }
                 $('#display_player').html(output);
@@ -47,7 +47,7 @@
                     output += '<td>' + data[i].winner_id + '</td>';
                     output += '<td>' + data[i].player_name + '</td>';
                     output += '<td>' + data[i].type_code + '</td>';
-                    output += '<td><a href="javascript:void(0);" class="deletewinner" data-winner_id="' + data[i].winner_id + '"><i class="ml-4 fa fa-trash-o text-danger"></i></a></td>';
+                    output += '<td><a href="javascript:void(0);" class="deletewinner ml-2" data-winner_id="' + data[i].winner_id + '"><i class="ml-4 fa fa-trash-o text-danger"></i></a></td>';
                     output += '</tr>';
                 }
                 $('#display_winner').html(output);
@@ -80,6 +80,10 @@
         music.pause();
         music.currentTime = 0;
     }
+
+    //Animation Effects
+    const applause = new Audio();
+    applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
 
     //Reset Button
     function reset() {
@@ -131,7 +135,7 @@
             {
                 'fillStyle': ' #ea82ef ',
                 'textFontSize': 10,
-                'text': 'CTED/CTF'
+                'text': 'CTED/TCP'
             },
             {
                 'fillStyle': ' #e7f5f5 ',
@@ -186,7 +190,7 @@
     function alertPrize(indicatedSegment) {
         if (indicatedSegment.text == 'CCS/COE/CAS') {
             $('#segment1').modal('show');
-        } else if (indicatedSegment.text == 'CTED/CTF') {
+        } else if (indicatedSegment.text == 'CTED/TCP') {
             $('#segment2').modal('show');
         } else if (indicatedSegment.text == 'SHS') {
             $('#segment3').modal('show');
@@ -215,7 +219,7 @@
         function add1() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#d6de21',
                 'textFontSize': 10,
                 'text': 'CCS/COE/CAS'
             }, 1);
@@ -225,9 +229,9 @@
         function add2() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#ea82ef',
                 'textFontSize': 10,
-                'text': 'CTED/CTF'
+                'text': 'CTED/TCP'
             }, 2);
             theWheel.draw(); // Render changes.
         }
@@ -235,7 +239,7 @@
         function add3() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#e7f5f5',
                 'textFontSize': 10,
                 'text': 'SHS'
             }, 3);
@@ -245,7 +249,7 @@
         function add4() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#c4d13d',
                 'textFontSize': 10,
                 'text': 'CCJE'
             }, 4);
@@ -255,7 +259,7 @@
         function add5() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#899292',
                 'textFontSize': 10,
                 'text': 'GS'
             }, 5);
@@ -265,7 +269,7 @@
         function add6() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#cc6a52',
                 'textFontSize': 10,
                 'text': 'CBA'
             }, 6);
@@ -275,7 +279,7 @@
         function add7() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#9773dc',
                 'textFontSize': 10,
                 'text': 'CHS'
             }, 7);
@@ -294,7 +298,7 @@
         function addEMP1() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#73afdd',
                 'textFontSize': 10,
                 'text': 'College EMP'
             });
@@ -304,7 +308,7 @@
         function addEMP2() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': '#956565',
                 'textFontSize': 10,
                 'text': 'NTP EMP'
             });
@@ -431,7 +435,7 @@
         return false;
     });
 
-    $('#player_table').on('dblclick', '.updateplayer', function() {
+    $('#player_table').on('click', '.updateplayer', function() {
         //GET THE DATA
         var player_id = $(this).data('player_id');
         var player_name = $(this).data('player_name');
@@ -441,14 +445,19 @@
         $('#player_name').val(player_name);
         $('#type_id').val(type_id);
 
-
-        if (confirm("Are you sure you want to update this user?")) {
-
-            $('#modal_update_player').modal('show');
-
-
-        }
-
+        Swal.fire({
+            title: 'Update Player',
+            text: "you sure you want to update this player?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#modal_update_player').modal('show');
+            }
+        })
         return false;
     });
 
@@ -472,6 +481,13 @@
             success: function(data) {
                 $('#modal_update_player').modal('hide');
                 player_list();
+                Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Update Success',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
             },
             error: function(data) {
                 alert("ERROR");
@@ -499,8 +515,14 @@
             url: "<?php echo base_url('Raffle/save_player'); ?>",
             success: function(data) {
                 $('#modal_add_player').modal('hide');
-                alert("NEW USER ADDED SUCCESSFULLY!");
                 player_list();
+                Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Added Successfully',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
                 clearuser();
             },
             error: function(data) {
@@ -571,6 +593,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -627,6 +664,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -683,6 +735,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -739,6 +806,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -795,6 +877,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -851,6 +948,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -907,6 +1019,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -963,6 +1090,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -1019,6 +1161,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 
@@ -1075,6 +1232,21 @@
                 })
             }
         }
+        // start
+        const startA = () => {
+            setTimeout(function() {
+                confetti.start()
+                applause.play()
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        };
+        //  Stop
+        const stopA = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+        };
+        startA();
+        stopA();
 
     }
 

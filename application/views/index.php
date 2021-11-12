@@ -79,11 +79,11 @@
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                                        <table id="player_table" class="table table-sm table-striped">
+                                        <table id="player_table" class="table table-sm table-striped table-responsive">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Player</th>
+                                                    <th>Players</th>
                                                     <th>Type</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -93,13 +93,12 @@
                                         </table>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                                        <table id="winner_table" class="table table-sm table-striped  bg-white">
+                                        <table id="winner_table" class="table table-sm table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Winner</th>
-                                                    <th>Type</th>
-                                                    <th>Action</th>
+                                                    <th colspan="2"><center>Winners</center></th>
+                                                    <th><center>Action</center></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="display_winner">
@@ -140,6 +139,8 @@
     <!-- Wheel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="<?php echo base_url('js/Winwheel.js'); ?>"></script>
+    <!-- Confetti -->
+    <script src="<?php echo base_url('js/confetti.js'); ?>"></script>
 
 
 </body>
@@ -153,7 +154,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Select Department to Add</h5>
+                <h5 class="modal-title">Select Category to Add</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -172,7 +173,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Select Department to Remove</h5>
+                <h5 class="modal-title">Select Category to Remove</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -270,7 +271,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>CSS - COE - CAS</h1>
+                <h2>College of Computer Studies</h2>
+                <h2>College of Engineering</h2>
+                <h2>College of Arts and Sciences</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment1()">Draw</button>
@@ -279,7 +282,7 @@
     </div>
 </div>
 
-<!-- Modal for CTED/CTF -->
+<!-- Modal for CTED/TCP -->
 <div class="modal fade" id="segment2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -290,7 +293,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>CTED - CTF</h1>
+                <h2>College of Teacher Education</h2>
+                <h2>Teacher Certificate Program</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment2()">Draw</button>
@@ -310,7 +314,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>SHS</h1>
+                <h2>Senior High School</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment3()">Draw</button>
@@ -330,7 +334,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>CCJE</h1>
+                <h2>College of Criminal Justice Education</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment4()">Draw</button>
@@ -350,7 +354,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>GS</h1>
+                <h2>Graduate Studies</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment5()">Draw</button>
@@ -370,7 +374,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>CBA</h1>
+                <h2>College of Business and Accountancy</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment6()">Draw</button>
@@ -390,7 +394,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>CHS</h1>
+                <h2>College of Health and Sciences</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment7()">Draw</button>
@@ -399,7 +403,7 @@
     </div>
 </div>
 
-<!-- Modal for CHS -->
+<!-- Modal for College Employee -->
 <div class="modal fade" id="segment8" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -410,7 +414,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>College EMP</h1>
+                <h1>College Employees</h1>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment8()">Draw</button>
@@ -419,7 +423,7 @@
     </div>
 </div>
 
-<!-- Modal for CHS -->
+<!-- Modal for NTP Employee -->
 <div class="modal fade" id="segment9" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -430,7 +434,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>NTP EMP</h1>
+                <h1>Non Teaching Personnel</h1>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment9()">Draw</button>
@@ -439,7 +443,7 @@
     </div>
 </div>
 
-<!-- Modal for CHS -->
+<!-- Modal for BED/GS/ICD Employee -->
 <div class="modal fade" id="segment10" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -450,7 +454,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>BED/GS/ICD EMP</h1>
+                <h2>Basic Education Employees</h2>
+                <h2>Graduate Studies Employees</h2>
+                <h2>ICD Employees</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment10()">Draw</button>
