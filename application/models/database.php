@@ -58,9 +58,10 @@ class Database extends CI_Model
     {
         $player_name = $this->input->post('player_name');
         $type_id = $this->input->post('type_id');
+        $userx_id = $this->session->userdata('userx_id');
 
         $result = $this->db->query("INSERT INTO player(player_name,type_id,userx_id)
-            VALUES ('$player_name','$type_id','1')");
+            VALUES ('$player_name','$type_id','$userx_id')");
         return $result;
     }
 
@@ -127,6 +128,8 @@ class Database extends CI_Model
     function save_winner()
     {
         $player_id = $this->input->post('player_id');
-        $query = $this->db->query("INSERT INTO winner(player_id,userx_id) VALUES ('$player_id','1');");
+        $userx_id = $this->session->userdata('userx_id');
+
+        $query = $this->db->query("INSERT INTO winner(player_id,userx_id) VALUES ('$player_id','$userx_id');");
     }
 }

@@ -202,17 +202,14 @@
             $('#segment6').modal('show');
         } else if (indicatedSegment.text == 'CHS') {
             $('#segment7').modal('show');
-        }
-        else if (indicatedSegment.text == 'College EMP') {
+        } else if (indicatedSegment.text == 'College EMP') {
             $('#segment8').modal('show');
-        }
-        else if (indicatedSegment.text == 'NTP EMP') {
+        } else if (indicatedSegment.text == 'NTP EMP') {
             $('#segment9').modal('show');
-        }
-        else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
+        } else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
             $('#segment10').modal('show');
         }
-        
+
     }
     //Add section
     function addStudents() {
@@ -482,12 +479,12 @@
                 $('#modal_update_player').modal('hide');
                 player_list();
                 Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Update Success',
-                            showConfirmButton: false,
-                            timer: 1000
-                        })
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Update Success',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
             },
             error: function(data) {
                 alert("ERROR");
@@ -517,12 +514,12 @@
                 $('#modal_add_player').modal('hide');
                 player_list();
                 Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Added Successfully',
-                            showConfirmButton: false,
-                            timer: 1000
-                        })
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Added Successfully',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
                 clearuser();
             },
             error: function(data) {

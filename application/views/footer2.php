@@ -82,8 +82,8 @@
     }
 
     //Animation Effects
-    const applause = new Audio();
-    applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
+    //const applause = new Audio();
+    //applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
 
     //Reset Button
     function reset() {
