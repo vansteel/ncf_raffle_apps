@@ -1,66 +1,122 @@
 <script>
+    //Display player list
     $(document).ready(function() {
-        $('#player_table').DataTable();
-    });
-    player_list();
-
-    function player_list() {
-        $.ajax({
-            type: "ajax",
-            url: "<?php echo base_url('Raffle/display_player_list'); ?>",
-            async: false,
-            dataType: 'json',
-            success: function(data) {
-                var output;
-                for (var i = 0; i < data.length; i++) {
-                    output += '<tr id="' + data[i].player_id + '">';
-                    output += '<td>' + data[i].player_id + '</td>';
-                    output += '<td>' + data[i].player_name + '</td>';
-                    output += '<td>' + data[i].type_code + '</td>';
-
-                    output += '</tr>';
-                }
-                $('#display_player').html(output);
+        var table = $('#player_table').DataTable({
+            'processing': false,
+            'serverSide': true,
+            'serverMethod': 'post',
+            'ajax': {
+                'url': '<?php echo base_url('Raffle2/playerList'); ?>'
             },
-            error: function() {
-                alert('error');
-            }
-        });
-    };
+            'columns': [{
+                    data: 'player_id'
+                },
+                {
+                    data: 'player'
+                },
+                {
+                    data: 'department'
+                }
 
-    $(document).ready(function() {
-        $('#winner_table').DataTable();
+
+            ]
+        });
+        setInterval(function() {
+            table.ajax.reload(null, false); // user paging is not reset on reload
+        }, 1000);
     });
+    // $(document).ready(function() {
+    //     $('#player_table').DataTable();
+    // });
+    // player_list();
+
+    // function player_list() {
+    //     $.ajax({
+    //         type: "ajax",
+    //         url: "<?php echo base_url('Raffle/display_player_list'); ?>",
+    //         async: false,
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             var output;
+    //             for (var i = 0; i < data.length; i++) {
+    //                 output += '<tr id="' + data[i].player_id + '">';
+    //                 output += '<td>' + data[i].player_id + '</td>';
+    //                 output += '<td>' + data[i].player_name + '</td>';
+    //                 output += '<td>' + data[i].type_code + '</td>';
+
+    //                 output += '</tr>';
+    //             }
+    //             $('#display_player').html(output);
+    //         },
+    //         error: function() {
+    //             alert('error');
+    //         }
+    //     });
+    // };
+
+
+
+
     //Display winner list
-    winner_list();
-
-    function winner_list() {
-        $.ajax({
-            type: "ajax",
-            url: "<?php echo base_url('Raffle/display_winner_list'); ?>",
-            async: false,
-            dataType: 'json',
-            success: function(data) {
-                var output;
-                for (var i = 0; i < data.length; i++) {
-                    output += '<tr id="' + data[i].winner_id + '">';
-                    output += '<td>' + data[i].winner_id + '</td>';
-                    output += '<td>' + data[i].player_name + '</td>';
-                    output += '<td>' + data[i].type_code + '</td>';
-
-                    output += '</tr>';
-                }
-                $('#display_winner').html(output);
+    $(document).ready(function() {
+        var table = $('#winner_table').DataTable({
+            dom: 'Bfrtip',
+            'buttons': [
+                'copy', 'excel', 'pdf', 'print'
+            ],
+            'processing': false,
+            'serverSide': true,
+            'serverMethod': 'post',
+            'ajax': {
+                'url': '<?php echo base_url('Raffle2/winnerList'); ?>'
             },
-            error: function() {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                })
-            }
+            'columns': [{
+                    data: 'winner_id'
+                },
+                {
+                    data: 'winner'
+                },
+                {
+                    data: 'department'
+                }
+
+
+            ]
         });
-    }
+        setInterval(function() {
+            table.ajax.reload(null, false); // user paging is not reset on reload
+        }, 1000);
+    });
+    // winner_list();
+
+    // function winner_list() {
+    //     $.ajax({
+    //         type: "ajax",
+    //         url: "<?php echo base_url('Raffle/display_winner_list'); ?>",
+    //         async: false,
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             var output;
+    //             for (var i = 0; i < data.length; i++) {
+    //                 output += '<tr id="' + data[i].winner_id + '">';
+    //                 output += '<td>' + data[i].winner_id + '</td>';
+    //                 output += '<td>' + data[i].player_name + '</td>';
+    //                 output += '<td>' + data[i].type_code + '</td>';
+
+    //                 output += '</tr>';
+    //             }
+    //             $('#display_winner').html(output);
+    //             $('#winner_table').DataTable();
+    //         },
+    //         error: function() {
+    //             Swal.fire({
+    //                 icon: 'error',
+    //                 title: 'Oops...',
+    //                 text: 'Something went wrong!',
+    //             })
+    //         }
+    //     });
+    // }
 
     //Background Music
     const music = new Audio();
@@ -127,54 +183,68 @@
     //Wheel
     let theWheel = new Winwheel({
         'numSegments': 10,
+        'innerRadius': 50,
+        'textFontSize': 1,
+        'textAlignment': 'center',
+        'textFontFamily': 'Arial',
         'segments': [{
-                'fillStyle': ' #d6de21 ',
-                'textFontSize': 10,
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
+                'textFontSize': 9,
                 'text': 'CCS/COE/CAS'
             },
             {
-                'fillStyle': ' #ea82ef ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CTED/TCP'
             },
             {
-                'fillStyle': ' #e7f5f5 ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'SHS'
             },
             {
-                'fillStyle': ' #c4d13d ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CCJE'
             },
             {
-                'fillStyle': ' #899292 ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'GS'
             },
             {
-                'fillStyle': ' #cc6a52 ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CBA'
             },
             {
-                'fillStyle': ' #9773dc ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'CHS'
             },
             {
-                'fillStyle': ' #73afdd ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'College EMP'
             },
             {
-                'fillStyle': ' #956565 ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'NTP EMP'
             },
             {
-                'fillStyle': '#eae56f',
-                'textFontSize': 10,
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
+                'textFontSize': 8,
                 'text': 'BED/GS/ICD EMP'
             }
         ],
@@ -184,6 +254,12 @@
             'duration': 5, // How long the animation is to take in seconds.
             'spins': 8, // The number of complete 360 degree rotations the wheel is to do.
             'callbackFinished': alertPrize
+        },
+        'pins': // Turn pins on.
+        {
+            'number': 10,
+            'fillStyle': 'lightgreen',
+            'outerRadius': 4,
         }
     });
 
@@ -202,89 +278,107 @@
             $('#segment6').modal('show');
         } else if (indicatedSegment.text == 'CHS') {
             $('#segment7').modal('show');
-        }
-        else if (indicatedSegment.text == 'College EMP') {
+        } else if (indicatedSegment.text == 'College EMP') {
             $('#segment8').modal('show');
-        }
-        else if (indicatedSegment.text == 'NTP EMP') {
+        } else if (indicatedSegment.text == 'NTP EMP') {
             $('#segment9').modal('show');
-        }
-        else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
+        } else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
             $('#segment10').modal('show');
+        } else if (indicatedSegment.text == 'NCF') {
+            Swal.fire('Merry Christmas, please try again!')
         }
-        
+
     }
     //Add section
     function addStudents() {
+        function addNull1() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'NCF'
+            }, 1);
+            theWheel.draw(); // Render changes.
+        }
+
         function add1() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#d6de21',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'CCS/COE/CAS'
-            }, 1);
+            }, 2);
             theWheel.draw(); // Render changes.
         }
 
         function add2() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#ea82ef',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CTED/TCP'
-            }, 2);
+            }, 3);
             theWheel.draw(); // Render changes.
         }
 
         function add3() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#e7f5f5',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'SHS'
-            }, 3);
+            }, 4);
             theWheel.draw(); // Render changes.
         }
 
         function add4() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#c4d13d',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CCJE'
-            }, 4);
+            }, 5);
             theWheel.draw(); // Render changes.
         }
 
         function add5() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#899292',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'GS'
-            }, 5);
+            }, 6);
             theWheel.draw(); // Render changes.
         }
 
         function add6() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#cc6a52',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CBA'
-            }, 6);
+            }, 7);
             theWheel.draw(); // Render changes.
         }
 
         function add7() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#9773dc',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'CHS'
-            }, 7);
+            }, 8);
             theWheel.draw(); // Render changes.
         }
+        addNull1();
         add1();
         add2();
         add3();
@@ -298,7 +392,8 @@
         function addEMP1() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#73afdd',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'College EMP'
             });
@@ -308,7 +403,8 @@
         function addEMP2() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#956565',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'NTP EMP'
             });
@@ -318,15 +414,29 @@
         function addEMP3() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'BED/GS/ICD EMP'
             });
             theWheel.draw(); // Render changes.
         }
+
+        function addNull() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
+                'textFontSize': 10,
+                'text': 'NCF'
+            });
+            theWheel.draw(); // Render changes.
+        }
+        addNull();
         addEMP1();
         addEMP2();
         addEMP3();
+
     }
     //Remove Section
     function removeStudents() {
@@ -338,6 +448,12 @@
         theWheel.deleteSegment(1);
         theWheel.deleteSegment(1);
         theWheel.deleteSegment(1);
+        theWheel.addSegment({
+            'fillStyle': 'white',
+            'textFillStyle': 'green',
+            'textFontSize': 10,
+            'text': 'NCF'
+        });
         theWheel.draw();
     }
 
@@ -346,6 +462,12 @@
         theWheel.deleteSegment();
         theWheel.deleteSegment();
         theWheel.deleteSegment();
+        theWheel.addSegment({
+            'fillStyle': 'green',
+            'textFillStyle': 'white',
+            'textFontSize': 10,
+            'text': 'NCF'
+        });
         theWheel.draw();
     }
 
@@ -370,7 +492,7 @@
                     },
                     url: "<?php echo base_url('Raffle/delete_player'); ?>",
                     success: function(data) {
-                        player_list();
+                        //player_list();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -413,7 +535,7 @@
                     },
                     url: "<?php echo base_url('Raffle/delete_winner'); ?>",
                     success: function(data) {
-                        winner_list();
+                        //winner_list();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -480,14 +602,14 @@
             url: "<?php echo base_url('Raffle/update_player'); ?>",
             success: function(data) {
                 $('#modal_update_player').modal('hide');
-                player_list();
+                //player_list();
                 Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Update Success',
-                            showConfirmButton: false,
-                            timer: 1000
-                        })
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Update Success',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
             },
             error: function(data) {
                 alert("ERROR");
@@ -515,14 +637,14 @@
             url: "<?php echo base_url('Raffle/save_player'); ?>",
             success: function(data) {
                 $('#modal_add_player').modal('hide');
-                player_list();
+                //player_list();
                 Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Added Successfully',
-                            showConfirmButton: false,
-                            timer: 1000
-                        })
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Added Successfully',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
                 clearuser();
             },
             error: function(data) {
@@ -1261,7 +1383,7 @@
             },
             url: "<?php echo base_url('Raffle/save_winner'); ?>",
             success: function(data) {
-                winner_list();
+                //winner_list();
                 $('#mymodal1').modal('hide');
                 $('#mymodal2').modal('hide');
                 $('#mymodal3').modal('hide');

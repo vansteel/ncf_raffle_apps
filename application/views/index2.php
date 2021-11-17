@@ -30,6 +30,9 @@
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#removeSegment"><i class="fas fa-remove mr-2"></i>Remove</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_add_player">Instruction</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -55,7 +58,7 @@
                         <div id="canvasContainer">
                             <img id="prizePointer" class="mb-1" src="<?php echo base_url('img/pointer.png'); ?>" />
                             <canvas id='canvas' class="container-fluid" height="280px">
-                                Canvas not supported, use another browser.
+                                canvas not supported in your browser
                             </canvas>
                             <button id="bigButton" class="btn btn-success" onclick="theWheel.startAnimation(); this.disabled=true;">Spin</button>
                             <a href="javascript:void(0);" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw();  bigButton.disabled=false;">Reset</a>
@@ -78,28 +81,28 @@
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                                        <table id="player_table" class="table table-sm table-striped">
+                                        <table id="player_table" class="table table-sm table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Players</th>
-                                                    <th>Type</th>
+                                                    <th>Department</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="display_player">
+                                            <tbody >
                                                 <!-- AJAX HERE -->
                                         </table>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                                        <table id="winner_table" class="table table-sm table-striped">
+                                        <table id="winner_table" class="table table-sm table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Winners</th>
-                                                    <th>Type</th>
+                                                    <th>Department</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="display_winner">
+                                            <tbody >
                                                 <!-- AJAX HERE -->
                                             </tbody>
                                         </table>
@@ -110,6 +113,12 @@
                     </div>
                 </div>
     </main>
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-3 bg-light text-white-50">
+        <div class="container text-center">
+            <small>Created by <span class="text-primary">Ivan Ramos</span></small>
+        </div>
+    </footer>
 
 
 

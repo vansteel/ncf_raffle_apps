@@ -17,17 +17,39 @@ class Raffle2 extends CI_Controller
         $this->load->view('footer2');
     }
 
-    function display_player_list()
+    public function playerList()
     {
-        $data = $this->database->display_player_list();
-        echo json_encode($data);
-    }
 
-    function display_winner_list()
-    {
-        $data = $this->database->display_winner_list();
+        // POST data
+        $postData = $this->input->post();
+
+        // Get data
+        $data = $this->database->getPlayer($postData);
+
         echo json_encode($data);
     }
+    // function display_player_list()
+    // {
+    //     $data = $this->database->display_player_list();
+    //     echo json_encode($data);
+    // }
+
+    public function winnerList()
+    {
+
+        // POST data
+        $postData = $this->input->post();
+
+        // Get data
+        $data = $this->database->getWinner($postData);
+
+        echo json_encode($data);
+    }
+    // function display_winner_list()
+    // {
+    //     $data = $this->database->display_winner_list();
+    //     echo json_encode($data);
+    // }
 
     function reset_winner_list()
     {

@@ -7,17 +7,156 @@ class Database extends CI_Model
         parent::__construct();
     }
 
-    function display_player_list()
+    function getPLayer($postData = null)
     {
-        $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_id, t.type_code FROM player p JOIN typex t USING(type_id)");
-        return $query->result();
-    }
 
-    function display_winner_list()
-    {
-        $query = $this->db->query("SELECT w.winner_id, p.player_name, t.type_code FROM winner w JOIN player p USING (player_id) JOIN typex t USING (type_id) ORDER BY winner_id");
-        return $query->result();
+        $response = array();
+
+        ## Read value
+        $draw = $postData['draw'];
+        $start = $postData['start'];
+        $rowperpage = $postData['length']; // Rows display per page
+        $columnIndex = $postData['order'][0]['column']; // Column index
+        $columnName = $postData['columns'][$columnIndex]['data']; // Column name
+        $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
+        $searchValue = $postData['search']['value']; // Search value
+
+        ## Search 
+        $searchQuery = "";
+        if ($searchValue != '') {
+            $searchQuery = " (player_name like '%" . $searchValue . "%' or type_code like '%" . $searchValue . "%') ";
+        }
+
+        ## Total number of records without filtering
+        $this->db->select('count(*) as allcount');
+        $this->db->from('player');
+        $this->db->join('typex','typex.type_id = player.type_id');
+        $records = $this->db->get()->result();
+        $totalRecords = $records[0]->allcount;
+
+        ## Total number of record with filtering
+        $this->db->select('count(*) as allcount');
+        $this->db->from('player');
+        $this->db->join('typex','typex.type_id = player.type_id');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $records = $this->db->get()->result();
+        $totalRecordwithFilter = $records[0]->allcount;
+
+        ## Fetch records
+
+        $this->db->select('player.player_id,player.player_name,typex.type_code');
+        $this->db->from('player');
+        $this->db->join('typex','typex.type_id = player.type_id');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $this->db->order_by($columnName, $columnSortOrder);
+        $this->db->limit($rowperpage, $start);
+        $records = $this->db->get()->result();
+
+        $data = array();
+
+        foreach ($records as $record) {
+
+            $data[] = array(
+                "player_id" => $record->player_id,
+                "player" => $record->player_name,
+                "department" => $record->type_code,
+            );
+        }
+
+        ## Response
+        $response = array(
+            "draw" => intval($draw),
+            "iTotalRecords" => $totalRecords,
+            "iTotalDisplayRecords" => $totalRecordwithFilter,
+            "aaData" => $data
+        );
+
+        return $response;
     }
+    // function display_player_list()
+    // {
+    //     $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_id, t.type_code FROM player p JOIN typex t USING(type_id)");
+    //     return $query->result();
+    // }
+
+    function getWinner($postData = null)
+    {
+
+        $response = array();
+
+        ## Read value
+        $draw = $postData['draw'];
+        $start = $postData['start'];
+        $rowperpage = $postData['length']; // Rows display per page
+        $columnIndex = $postData['order'][0]['column']; // Column index
+        $columnName = $postData['columns'][$columnIndex]['data']; // Column name
+        $columnSortOrder = $postData['order'][0]['dir']; // asc or desc
+        $searchValue = $postData['search']['value']; // Search value
+
+        ## Search 
+        $searchQuery = "";
+        if ($searchValue != '') {
+            $searchQuery = " (player_name like '%" . $searchValue . "%' or type_code like '%" . $searchValue . "%' or statusx like '%" . $searchValue . "%') ";
+        }
+
+        ## Total number of records without filtering
+        $this->db->select('count(*) as allcount');
+        $this->db->from('winner');
+        $this->db->join('player','winner.player_id = player.player_id');
+        $this->db->join('typex','typex.type_id = player.type_id');
+        $records = $this->db->get()->result();
+        $totalRecords = $records[0]->allcount;
+
+        ## Total number of record with filtering
+        $this->db->select('count(*) as allcount');
+        $this->db->from('winner');
+        $this->db->join('player','winner.player_id = player.player_id');
+        $this->db->join('typex','typex.type_id = player.type_id');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $records = $this->db->get()->result();
+        $totalRecordwithFilter = $records[0]->allcount;
+
+        ## Fetch records
+
+        $this->db->select('winner.winner_id,player.player_name,typex.type_code');
+        $this->db->from('winner');
+        $this->db->join('player','winner.player_id = player.player_id');
+        $this->db->join('typex','typex.type_id = player.type_id');
+        if ($searchQuery != '')
+            $this->db->where($searchQuery);
+        $this->db->order_by($columnName, $columnSortOrder);
+        $this->db->limit($rowperpage, $start);
+        $records = $this->db->get()->result();
+
+        $data = array();
+
+        foreach ($records as $record) {
+
+            $data[] = array(
+                "winner_id" => $record->winner_id,
+                "winner" => $record->player_name,
+                "department" => $record->type_code,
+            );
+        }
+
+        ## Response
+        $response = array(
+            "draw" => intval($draw),
+            "iTotalRecords" => $totalRecords,
+            "iTotalDisplayRecords" => $totalRecordwithFilter,
+            "aaData" => $data
+        );
+
+        return $response;
+    }
+    // function display_winner_list()
+    // {
+    //     $query = $this->db->query("SELECT w.winner_id, p.player_name, t.type_code FROM winner w JOIN player p USING (player_id) JOIN typex t USING (type_id) ORDER BY winner_id");
+    //     return $query->result();
+    // }
 
     function reset_winner_list()
     {

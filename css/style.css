@@ -13,4 +13,12 @@
     font-size: 16px;
 }
 
+#canvasContainer{
+    background-image: url('tiger.png');
+    background-size: 175px;
+    background-position-x: center;
+    background-position-y: 212px;
+    background-repeat: no-repeat;
+}
+
 
