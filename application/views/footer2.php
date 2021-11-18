@@ -25,37 +25,6 @@
             table.ajax.reload(null, false); // user paging is not reset on reload
         }, 1000);
     });
-    // $(document).ready(function() {
-    //     $('#player_table').DataTable();
-    // });
-    // player_list();
-
-    // function player_list() {
-    //     $.ajax({
-    //         type: "ajax",
-    //         url: "<?php echo base_url('Raffle/display_player_list'); ?>",
-    //         async: false,
-    //         dataType: 'json',
-    //         success: function(data) {
-    //             var output;
-    //             for (var i = 0; i < data.length; i++) {
-    //                 output += '<tr id="' + data[i].player_id + '">';
-    //                 output += '<td>' + data[i].player_id + '</td>';
-    //                 output += '<td>' + data[i].player_name + '</td>';
-    //                 output += '<td>' + data[i].type_code + '</td>';
-
-    //                 output += '</tr>';
-    //             }
-    //             $('#display_player').html(output);
-    //         },
-    //         error: function() {
-    //             alert('error');
-    //         }
-    //     });
-    // };
-
-
-
 
     //Display winner list
     $(document).ready(function() {
@@ -87,36 +56,6 @@
             table.ajax.reload(null, false); // user paging is not reset on reload
         }, 1000);
     });
-    // winner_list();
-
-    // function winner_list() {
-    //     $.ajax({
-    //         type: "ajax",
-    //         url: "<?php echo base_url('Raffle/display_winner_list'); ?>",
-    //         async: false,
-    //         dataType: 'json',
-    //         success: function(data) {
-    //             var output;
-    //             for (var i = 0; i < data.length; i++) {
-    //                 output += '<tr id="' + data[i].winner_id + '">';
-    //                 output += '<td>' + data[i].winner_id + '</td>';
-    //                 output += '<td>' + data[i].player_name + '</td>';
-    //                 output += '<td>' + data[i].type_code + '</td>';
-
-    //                 output += '</tr>';
-    //             }
-    //             $('#display_winner').html(output);
-    //             $('#winner_table').DataTable();
-    //         },
-    //         error: function() {
-    //             Swal.fire({
-    //                 icon: 'error',
-    //                 title: 'Oops...',
-    //                 text: 'Something went wrong!',
-    //             })
-    //         }
-    //     });
-    // }
 
     //Background Music
     const music = new Audio();
@@ -127,11 +66,9 @@
     function play_music() {
         music.play();
     }
-
     function pause_music() {
         music.pause();
     }
-
     function stop_music() {
         music.pause();
         music.currentTime = 0;
@@ -141,52 +78,14 @@
     //const applause = new Audio();
     //applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
 
-    //Reset Button
-    function reset() {
-        Swal.fire({
-            title: 'Reset Winner List?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "post",
-                    dataType: "JSON",
-                    url: "<?php echo base_url('Raffle/reset_winner_list'); ?>",
-                    success: function(data) {
-                        //winner_list();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Reset Success',
-                            text: 'Please reload your webpage',
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                    },
-                    error: function(data) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                        })
-                    }
-                });
-            }
-        })
-    }
-
-    //Wheel
+    //Wheel Functions
     let theWheel = new Winwheel({
         'numSegments': 10,
         'innerRadius': 50,
         'textFontSize': 1,
         'textAlignment': 'center',
         'textFontFamily': 'Arial',
+        'strokeStyle' : 'darkgreen',
         'segments': [{
                 'fillStyle': ' white ',
                 'textFillStyle': 'green',
@@ -248,11 +147,11 @@
                 'text': 'BED/GS/ICD EMP'
             }
         ],
-        'animation': // Note animation properties passed in constructor parameters.
+        'animation': 
         {
-            'type': 'spinToStop', // Type of animation.
-            'duration': 5, // How long the animation is to take in seconds.
-            'spins': 8, // The number of complete 360 degree rotations the wheel is to do.
+            'type': 'spinToStop', 
+            'duration': 5, 
+            'spins': 8, 
             'callbackFinished': alertPrize
         },
         'pins': // Turn pins on.
@@ -263,6 +162,7 @@
         }
     });
 
+    //actions after selecting segment in the wheel
     function alertPrize(indicatedSegment) {
         if (indicatedSegment.text == 'CCS/COE/CAS') {
             $('#segment1').modal('show');
@@ -471,197 +371,6 @@
         theWheel.draw();
     }
 
-    //Delete specific player
-    $('#display_player').on('click', '.deleteplayer', function() {
-        var player_id = $(this).data('player_id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    dataType: "JSON",
-                    data: {
-                        player_id: player_id
-                    },
-                    url: "<?php echo base_url('Raffle/delete_player'); ?>",
-                    success: function(data) {
-                        //player_list();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Deletion Success',
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                    },
-                    error: function(data) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                        })
-                    }
-                });
-            }
-        })
-        return false;
-    });
-
-    //Delete specific winner
-    $('#display_winner').on('click', '.deletewinner', function() {
-        var winner_id = $(this).data('winner_id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    dataType: "JSON",
-                    data: {
-                        winner_id: winner_id
-                    },
-                    url: "<?php echo base_url('Raffle/delete_winner'); ?>",
-                    success: function(data) {
-                        //winner_list();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Deletion Success',
-                            showConfirmButton: false,
-                            timer: 1000
-                        })
-                    },
-                    error: function(data) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                        })
-                    }
-                });
-            }
-        })
-        return false;
-    });
-
-    $('#player_table').on('click', '.updateplayer', function() {
-        //GET THE DATA
-        var player_id = $(this).data('player_id');
-        var player_name = $(this).data('player_name');
-        var type_id = $(this).data('type_id');
-        //CAPTURE THE VALUE
-        $('#player_id').val(player_id);
-        $('#player_name').val(player_name);
-        $('#type_id').val(type_id);
-
-        Swal.fire({
-            title: 'Update Player',
-            text: "you sure you want to update this player?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $('#modal_update_player').modal('show');
-            }
-        })
-        return false;
-    });
-
-    //------------------------------------------------------THIS CODE WILL UPDATE THE USER INFORMATION-----------------------------------------------------//
-
-    $('#updateplayerform').submit('click', function() {
-        //CAPTURE THE UPDATED VALUE
-        var player_id = $('#player_id').val();
-        var player_name = $('#player_name').val();
-        var type_id = $('#type_id').val();
-        $.ajax({
-
-            type: "POST",
-            dataType: "JSON",
-            data: {
-                player_id: player_id,
-                player_name: player_name,
-                type_id: type_id,
-            },
-            url: "<?php echo base_url('Raffle/update_player'); ?>",
-            success: function(data) {
-                $('#modal_update_player').modal('hide');
-                //player_list();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Update Success',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-            },
-            error: function(data) {
-                alert("ERROR");
-            }
-
-        });
-
-        return false;
-    });
-
-    //------------------------------------------------------THIS CODE WILL CREATE A NEW USER-----------------------------------------------------//
-
-    $('#saveplayerform').submit('click', function() {
-        //CAPTURE THE VALUE
-        var player_name = $('#player_namex').val();
-        var type_id = $('#type_id1').val();
-        $.ajax({
-
-            type: "POST",
-            dataType: "JSON",
-            data: {
-                player_name: player_name,
-                type_id: type_id,
-            },
-            url: "<?php echo base_url('Raffle/save_player'); ?>",
-            success: function(data) {
-                $('#modal_add_player').modal('hide');
-                //player_list();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Added Successfully',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-                clearuser();
-            },
-            error: function(data) {
-                alert("ERROR");
-            }
-
-        });
-
-        return false;
-    });
-
-    //Clear
-    function clearuser() {
-        $('#player_namex').val('');
-        $('#type_id1').val('');
-    }
-
     //Select random player from segment 1
     function select_random_segment1() {
         $('#segment1').modal('hide');
@@ -720,7 +429,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -791,8 +500,8 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
-        };
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+        }
         //  Stop
         const stopA = () => {
             setTimeout(function() {
@@ -862,7 +571,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -933,7 +642,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -1004,7 +713,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -1075,7 +784,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -1146,7 +855,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -1217,7 +926,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -1288,7 +997,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
@@ -1359,7 +1068,7 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {

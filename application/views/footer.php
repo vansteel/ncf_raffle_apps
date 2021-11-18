@@ -127,66 +127,87 @@
     //Wheel
     let theWheel = new Winwheel({
         'numSegments': 10,
+        'innerRadius': 50,
+        'textFontSize': 1,
+        'textAlignment': 'center',
+        'textFontFamily': 'Arial',
         'segments': [{
-                'fillStyle': ' #d6de21 ',
-                'textFontSize': 10,
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
+                'textFontSize': 9,
                 'text': 'CCS/COE/CAS'
             },
             {
-                'fillStyle': ' #ea82ef ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CTED/TCP'
             },
             {
-                'fillStyle': ' #e7f5f5 ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'SHS'
             },
             {
-                'fillStyle': ' #c4d13d ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CCJE'
             },
             {
-                'fillStyle': ' #899292 ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'GS'
             },
             {
-                'fillStyle': ' #cc6a52 ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CBA'
             },
             {
-                'fillStyle': ' #9773dc ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'CHS'
             },
             {
-                'fillStyle': ' #73afdd ',
+                'fillStyle': ' green ',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'College EMP'
             },
             {
-                'fillStyle': ' #956565 ',
+                'fillStyle': ' white ',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'NTP EMP'
             },
             {
-                'fillStyle': '#eae56f',
-                'textFontSize': 10,
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
+                'textFontSize': 8,
                 'text': 'BED/GS/ICD EMP'
             }
         ],
-        'animation': // Note animation properties passed in constructor parameters.
+        'animation': 
         {
-            'type': 'spinToStop', // Type of animation.
-            'duration': 5, // How long the animation is to take in seconds.
-            'spins': 8, // The number of complete 360 degree rotations the wheel is to do.
+            'type': 'spinToStop', 
+            'duration': 5, 
+            'spins': 8, 
             'callbackFinished': alertPrize
+        },
+        'pins': // Turn pins on.
+        {
+            'number': 10,
+            'fillStyle': 'lightgreen',
+            'outerRadius': 4,
         }
     });
 
+    //actions after selecting segment in the wheel
     function alertPrize(indicatedSegment) {
         if (indicatedSegment.text == 'CCS/COE/CAS') {
             $('#segment1').modal('show');
@@ -208,80 +229,101 @@
             $('#segment9').modal('show');
         } else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
             $('#segment10').modal('show');
+        } else if (indicatedSegment.text == 'NCF') {
+            Swal.fire('Merry Christmas, please try again!')
         }
 
     }
     //Add section
     function addStudents() {
+        function addNull1() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'NCF'
+            }, 1);
+            theWheel.draw(); // Render changes.
+        }
+
         function add1() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#d6de21',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'CCS/COE/CAS'
-            }, 1);
+            }, 2);
             theWheel.draw(); // Render changes.
         }
 
         function add2() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#ea82ef',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CTED/TCP'
-            }, 2);
+            }, 3);
             theWheel.draw(); // Render changes.
         }
 
         function add3() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#e7f5f5',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'SHS'
-            }, 3);
+            }, 4);
             theWheel.draw(); // Render changes.
         }
 
         function add4() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#c4d13d',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CCJE'
-            }, 4);
+            }, 5);
             theWheel.draw(); // Render changes.
         }
 
         function add5() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#899292',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'GS'
-            }, 5);
+            }, 6);
             theWheel.draw(); // Render changes.
         }
 
         function add6() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#cc6a52',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'CBA'
-            }, 6);
+            }, 7);
             theWheel.draw(); // Render changes.
         }
 
         function add7() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#9773dc',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'CHS'
-            }, 7);
+            }, 8);
             theWheel.draw(); // Render changes.
         }
+        addNull1();
         add1();
         add2();
         add3();
@@ -295,7 +337,8 @@
         function addEMP1() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#73afdd',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'College EMP'
             });
@@ -305,7 +348,8 @@
         function addEMP2() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#956565',
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
                 'textFontSize': 10,
                 'text': 'NTP EMP'
             });
@@ -315,15 +359,29 @@
         function addEMP3() {
             $('#addSegment').modal('hide');
             theWheel.addSegment({
-                'fillStyle': '#eae56f',
+                'fillStyle': 'green',
+                'textFillStyle': 'white',
                 'textFontSize': 10,
                 'text': 'BED/GS/ICD EMP'
             });
             theWheel.draw(); // Render changes.
         }
+
+        function addNull() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'green',
+                'textFontSize': 10,
+                'text': 'NCF'
+            });
+            theWheel.draw(); // Render changes.
+        }
+        addNull();
         addEMP1();
         addEMP2();
         addEMP3();
+
     }
     //Remove Section
     function removeStudents() {
@@ -335,6 +393,12 @@
         theWheel.deleteSegment(1);
         theWheel.deleteSegment(1);
         theWheel.deleteSegment(1);
+        theWheel.addSegment({
+            'fillStyle': 'white',
+            'textFillStyle': 'green',
+            'textFontSize': 10,
+            'text': 'NCF'
+        });
         theWheel.draw();
     }
 
@@ -343,6 +407,12 @@
         theWheel.deleteSegment();
         theWheel.deleteSegment();
         theWheel.deleteSegment();
+        theWheel.addSegment({
+            'fillStyle': 'green',
+            'textFillStyle': 'white',
+            'textFontSize': 10,
+            'text': 'NCF'
+        });
         theWheel.draw();
     }
 

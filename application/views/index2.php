@@ -1,5 +1,5 @@
 <body>
-
+    <!--===== Navigation Bar =====-->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #064518;">
         <a class="navbar-brand font-weight-bold" href="<?php echo base_url('Raffle2'); ?>">
             <img src="<?php echo base_url('img/ncf-logo.png'); ?>" width="30" height="30" class="d-inline-block align-top" alt="ncf logo">
@@ -48,8 +48,8 @@
             </ul>
         </div>
     </nav>
-
-    <main class="content-section mt-5 container">
+    <!--===== Box type content section =====-->
+    <main class="content-section mt-4 container">
         <div class="card card-outline card-success">
             <div class="card-body">
                 <div class="row">
@@ -113,14 +113,14 @@
                     </div>
                 </div>
     </main>
-
+    <!--===== Footer Section =====-->
     <footer id="sticky-footer" class="flex-shrink-0 py-3 bg-light text-white-50">
         <div class="container text-center">
             <small>Created by <span class="text-primary">Ivan Ramos</span></small>
         </div>
     </footer>
 
-
+    <!--===== Libraries and Plugins =====-->
 
     <!-- jQuery -->
     <script src="<?php echo base_url('adminlte/plugins/jquery/jquery.min.js'); ?>"></script>
@@ -193,79 +193,6 @@
     </div>
 </div>
 <!-- /Modal for removing segment in roulette -->
-
-<!-- The Modal For Update -->
-<div class="modal fade" id="modal_update_player">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Update Player</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="container">
-                <form id="updateplayerform" method="post">
-                    <div class="form-group">
-                        <label for="player_id">Player ID:</label>
-                        <input type="text" class="form-control" id="player_id" name="player_id" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="player_name">PLayer Name:</label>
-                        <input type="text" class="form-control" id="player_name" name="player_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Type:</label>
-                        <select class="form-control" name="type_id" id="type_id" required>
-                            <option value=""></option>
-                            <?php foreach ($typex as $var1) { ?>
-                                <option value="<?php echo $var1->type_id; ?>" id="<?php echo $var1->type_id; ?>"><?php echo $var1->type_code; ?></option>
-                            <?php }; ?>
-
-                        </select>
-                    </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Update</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- The Modal For Create -->
-<div class="modal fade" id="modal_add_player">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Add New Player</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="container">
-                <form id="saveplayerform" method="post">
-                    <div class="form-group">
-                        <label for="player_name">PLayer Name:</label>
-                        <input type="text" class="form-control" id="player_namex" name="player_namex" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="type_id1">Type:</label>
-                        <select class="form-control" name="type_id1" id="type_id1" required>
-                            <option value=""></option>
-                            <?php foreach ($typex as $var1) { ?>
-                                <option value="<?php echo $var1->type_id; ?>" id="<?php echo $var1->type_id; ?>"><?php echo $var1->type_code; ?></option>
-                            <?php }; ?>
-                        </select>
-                    </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Add</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <!-- Modal for CCS/COE/CAS -->
 <div class="modal fade" id="segment1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

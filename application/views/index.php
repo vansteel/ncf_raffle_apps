@@ -84,7 +84,7 @@
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                                        <table id="player_table" class="table table-sm table-striped">
+                                        <table id="player_table" class="table table-sm table-striped" >
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -98,7 +98,7 @@
                                         </table>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                                        <table id="winner_table" class="table table-sm table-striped">
+                                        <table id="winner_table" class="table table-sm table-striped" >
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -119,11 +119,9 @@
                 </div>
     </main>
 
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.1.0
+    <footer id="sticky-footer" class="flex-shrink-0 py-3 bg-light text-white-50">
+        <div class="container text-center">
+            <small>Created by <span class="text-primary">Ivan Ramos</span></small>
         </div>
     </footer>
 
