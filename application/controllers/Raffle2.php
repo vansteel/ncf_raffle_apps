@@ -107,4 +107,15 @@ class Raffle2 extends CI_Controller
         echo json_encode($data);
     }
 
+    function segment_name(){
+        $data = $this->tabulator_m->segment_name();
+        echo json_encode($data);
+    }
+
+    function total_segment(){
+        $data = $this->tabulator_m->total_segment();
+        echo json_encode($data);
+    }
+
+
 }

@@ -177,3 +177,737 @@
 </script>
 
 </html>
+
+
+//Wheel Functions
+    let theWheel = new Winwheel({
+        'numSegments': 10,
+        'innerRadius': 50,
+        'textFontSize': 1,
+        'textAlignment': 'center',
+        'textFontFamily': 'Arial',
+        'strokeStyle': 'darkgreen',
+        'segments': [{
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 9,
+                'text': 'CCS/COE/CAS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'CTED/TCP'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'SHS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'CCJE'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'GS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'CBM/CAF'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'CHS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'College EMP'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'NTP EMP'
+            },
+            {
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'textFontSize': 8,
+                'text': 'BED/GS/ICD EMP'
+            }
+        ],
+        'animation': {
+            'type': 'spinToStop',
+            'duration': 5,
+            'spins': 8,
+            'callbackFinished': alertPrize
+        },
+        'pins': // Turn pins on.
+        {
+            'number': 10,
+            'fillStyle': 'lightgreen',
+            'outerRadius': 4,
+        }
+    });
+
+    // Get canvas and span objects.
+    let canvas = document.getElementById('canvas');
+
+    // Specify click handler for canvas.
+    canvas.onclick = function(e) {
+        // Call the getSegmentAt function passing the mouse x and y from the event.
+        let clickedSegment = theWheel.getSegmentNumberAt(e.clientX, e.clientY);
+        if (clickedSegment == 1) {
+
+        }
+        // A pointer to the segment clicked is returned if the user clicked inside the wheel.
+
+        // if (clickedSegment) {
+        //     // Change background colour of the segment and update the wheel.
+        //     //clickedSegment.fillStyle = 'yellow';
+        //     //theWheel.draw();
+
+        //     $('#segment1').modal('show');
+
+
+        // }
+
+
+    }
+
+    //actions after selecting segment in the wheel
+    function alertPrize(indicatedSegment) {
+        if (indicatedSegment.text == 'CCS/COE/CAS') {
+            $('#segment1').modal('show');
+        } else if (indicatedSegment.text == 'CTED/TCP') {
+            $('#segment2').modal('show');
+        } else if (indicatedSegment.text == 'SHS') {
+            $('#segment3').modal('show');
+        } else if (indicatedSegment.text == 'CCJE') {
+            $('#segment4').modal('show');
+        } else if (indicatedSegment.text == 'GS') {
+            $('#segment5').modal('show');
+        } else if (indicatedSegment.text == 'CBM/CAF') {
+            $('#segment6').modal('show');
+        } else if (indicatedSegment.text == 'CHS') {
+            $('#segment7').modal('show');
+        } else if (indicatedSegment.text == 'College EMP') {
+            $('#segment8').modal('show');
+        } else if (indicatedSegment.text == 'NTP EMP') {
+            $('#segment9').modal('show');
+        } else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
+            $('#segment10').modal('show');
+        } else if (indicatedSegment.text == 'NCF') {
+            Swal.fire('Merry Christmas, please try again!')
+        }
+
+    }
+    // //Add section
+    // function addStudents() {
+    //     function addNull1() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'darkgreen',
+    //             'textFillStyle': 'white',
+    //             'textFontSize': 10,
+    //             'text': 'NCF'
+    //         }, 1);
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function add1() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'white',
+    //             'textFillStyle': 'darkgreen',
+    //             'textFontSize': 10,
+    //             'text': 'CCS/COE/CAS'
+    //         }, 2);
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function add2() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'darkgreen',
+    //             'textFillStyle': 'white',
+    //             'textFontSize': 10,
+    //             'text': 'CTED/TCP'
+    //         }, 3);
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function add3() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'white',
+    //             'textFillStyle': 'darkgreen',
+    //             'textFontSize': 10,
+    //             'text': 'SHS'
+    //         }, 4);
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function add4() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'darkgreen',
+    //             'textFillStyle': 'white',
+    //             'textFontSize': 10,
+    //             'text': 'CCJE'
+    //         }, 5);
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function add5() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'white',
+    //             'textFillStyle': 'darkgreen',
+    //             'textFontSize': 10,
+    //             'text': 'GS'
+    //         }, 6);
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function add6() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'darkgreen',
+    //             'textFillStyle': 'white',
+    //             'textFontSize': 10,
+    //             'text': 'CBM/CAF'
+    //         }, 7);
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function add7() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'white',
+    //             'textFillStyle': 'darkgreen',
+    //             'textFontSize': 10,
+    //             'text': 'CHS'
+    //         }, 8);
+    //         theWheel.draw(); // Render changes.
+    //     }
+    //     addNull1();
+    //     add1();
+    //     add2();
+    //     add3();
+    //     add4();
+    //     add5();
+    //     add6();
+    //     add7();
+    // }
+
+    // function addEmployees() {
+    //     function addEMP1() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'darkgreen',
+    //             'textFillStyle': 'white',
+    //             'textFontSize': 10,
+    //             'text': 'College EMP'
+    //         });
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function addEMP2() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'white',
+    //             'textFillStyle': 'darkgreen',
+    //             'textFontSize': 10,
+    //             'text': 'NTP EMP'
+    //         });
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function addEMP3() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'darkgreen',
+    //             'textFillStyle': 'white',
+    //             'textFontSize': 10,
+    //             'text': 'BED/GS/ICD EMP'
+    //         });
+    //         theWheel.draw(); // Render changes.
+    //     }
+
+    //     function addNull() {
+    //         $('#addSegment').modal('hide');
+    //         theWheel.addSegment({
+    //             'fillStyle': 'white',
+    //             'textFillStyle': 'darkgreen',
+    //             'textFontSize': 10,
+    //             'text': 'NCF'
+    //         });
+    //         theWheel.draw(); // Render changes.
+    //     }
+    //     addNull();
+    //     addEMP1();
+    //     addEMP2();
+    //     addEMP3();
+
+    // }
+    //Remove Section
+    function removeStudents() {
+        let theWheel = new Winwheel({
+            'numSegments': 4,
+            'innerRadius': 50,
+            'textFontSize': 1,
+            'textAlignment': 'center',
+            'textFontFamily': 'Arial',
+            'strokeStyle': 'darkgreen',
+            'segments': [{
+                    'fillStyle': ' white ',
+                    'textFillStyle': 'darkgreen',
+                    'textFontSize': 9,
+                    'text': 'College EMP'
+                },
+                {
+                    'fillStyle': ' darkgreen ',
+                    'textFillStyle': 'white',
+                    'textFontSize': 10,
+                    'text': 'NTP EMP'
+                },
+                {
+                    'fillStyle': ' white ',
+                    'textFillStyle': 'darkgreen',
+                    'textFontSize': 10,
+                    'text': 'BED/GS/ICD EMP'
+                },
+                {
+                    'fillStyle': ' darkgreen ',
+                    'textFillStyle': 'white',
+                    'textFontSize': 10,
+                    'text': 'NCF'
+                },
+
+            ],
+            'animation': {
+                'type': 'spinToStop',
+                'duration': 5,
+                'spins': 8,
+                'callbackFinished': alertPrize
+            },
+            'pins': // Turn pins on.
+            {
+                'number': 10,
+                'fillStyle': 'lightgreen',
+                'outerRadius': 4,
+            }
+        });
+        $('#removeSegment').modal('hide');
+        // theWheel.deleteSegment(1);
+        // theWheel.deleteSegment(1);
+        // theWheel.deleteSegment(1);
+        // theWheel.deleteSegment(1);
+        // theWheel.deleteSegment(1);
+        // theWheel.deleteSegment(1);
+        // theWheel.deleteSegment(1);
+        // theWheel.addSegment({
+        //     'fillStyle': 'white',
+        //     'textFillStyle': 'darkgreen',
+        //     'textFontSize': 10,
+        //     'text': 'NCF'
+        // });
+        theWheel.draw();
+    }
+
+    function removeEmployees() {
+        $('#removeSegment').modal('hide');
+        theWheel.deleteSegment();
+        theWheel.deleteSegment();
+        theWheel.deleteSegment();
+        theWheel.addSegment({
+            'fillStyle': 'darkgreen',
+            'textFillStyle': 'white',
+            'textFontSize': 10,
+            'text': 'NCF'
+        });
+        theWheel.draw();
+    }
+
+
+
+
+    'segments': [{
+                'fillStyle': ''+test+'',
+                'textFillStyle': 'darkgreen',
+                'text': 'CCS/COE/CAS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'CTED/TCP'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'SHS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'CCJE'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'GS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'CBM/CAF'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'CHS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'College EMP'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'NTP EMP'
+            },
+            {
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'text': 'BED/GS/ICD EMP'
+            }
+        ],
+
+
+
+        //Wheel Functions
+    let theWheel = new Winwheel({
+        'numSegments': countType(),
+        'innerRadius': 85,
+        'textFontSize': 15,
+        'textAlignment': 'center',
+        'textFontFamily': 'Arial',
+        'strokeStyle': 'darkgreen',
+        'segments': [{
+                'fillStyle': 'white',
+                'textFillStyle': 'darkgreen',
+                'text': 'CCS/COE/CAS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'CTED/TCP'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'SHS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'CCJE'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'GS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'CBM/CAF'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'CHS'
+            },
+            {
+                'fillStyle': ' darkgreen ',
+                'textFillStyle': 'white',
+                'text': 'College EMP'
+            },
+            {
+                'fillStyle': ' white ',
+                'textFillStyle': 'darkgreen',
+                'text': 'NTP EMP'
+            },
+            {
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'text': 'BED/GS/ICD EMP'
+            }
+        ],
+        'animation': {
+            'type': 'spinToStop',
+            'duration': 5,
+            'spins': 8,
+            'callbackFinished': alertPrize
+        },
+        'pins': // Turn pins on.
+        {
+            'number': 10,
+            'fillStyle': 'lightgreen',
+            'outerRadius': 4,
+        }
+    });
+
+    // Get canvas and span objects.
+    let canvas = document.getElementById('canvas');
+
+    //Specify click handler for canvas.
+    canvas.onclick = function(e) {
+        // Call the getSegmentAt function passing the mouse x and y from the event.
+        let clickedSegment = theWheel.getSegmentNumberAt(e.clientX, e.clientY);
+
+        if (clickedSegment == 1) {
+            $('#segment1').modal('show');
+        } else if (clickedSegment == 2) {
+            $('#segment2').modal('show');
+        } else if (clickedSegment == 3) {
+            $('#segment3').modal('show');
+        } else if (clickedSegment == 4) {
+            $('#segment4').modal('show');
+        } else if (clickedSegment == 5) {
+            $('#segment5').modal('show');
+        } else if (clickedSegment == 6) {
+            $('#segment6').modal('show');
+        } else if (clickedSegment == 7) {
+            $('#segment7').modal('show');
+        } else if (clickedSegment == 8) {
+            $('#segment8').modal('show');
+        } else if (clickedSegment == 9) {
+            $('#segment9').modal('show');
+        } else if (clickedSegment == 10) {
+            $('#segment10').modal('show');
+        }
+    }
+
+    //actions after selecting segment in the wheel
+    function alertPrize(indicatedSegment) {
+        if (indicatedSegment.text == 'CCS/COE/CAS') {
+            $('#segment1').modal('show');
+        } else if (indicatedSegment.text == 'CTED/TCP') {
+            $('#segment2').modal('show');
+        } else if (indicatedSegment.text == 'SHS') {
+            $('#segment3').modal('show');
+        } else if (indicatedSegment.text == 'CCJE') {
+            $('#segment4').modal('show');
+        } else if (indicatedSegment.text == 'GS') {
+            $('#segment5').modal('show');
+        } else if (indicatedSegment.text == 'CBM/CAF') {
+            $('#segment6').modal('show');
+        } else if (indicatedSegment.text == 'CHS') {
+            $('#segment7').modal('show');
+        } else if (indicatedSegment.text == 'College EMP') {
+            $('#segment8').modal('show');
+        } else if (indicatedSegment.text == 'NTP EMP') {
+            $('#segment9').modal('show');
+        } else if (indicatedSegment.text == 'BED/GS/ICD EMP') {
+            $('#segment10').modal('show');
+        } else if (indicatedSegment.text == 'NCF') {
+            Swal.fire('Merry Christmas, please try again!')
+        }
+
+    }
+    //Add section
+    function addStudents() {
+        function addNull1() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'NCF'
+            }, 1);
+            theWheel.draw(); // Render changes.
+        }
+
+        function add1() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'CCS/COE/CAS'
+            }, 2);
+            theWheel.draw(); // Render changes.
+        }
+
+        function add2() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'CTED/TCP'
+            }, 3);
+            theWheel.draw(); // Render changes.
+        }
+
+        function add3() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'SHS'
+            }, 4);
+            theWheel.draw(); // Render changes.
+        }
+
+        function add4() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'CCJE'
+            }, 5);
+            theWheel.draw(); // Render changes.
+        }
+
+        function add5() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'GS'
+            }, 6);
+            theWheel.draw(); // Render changes.
+        }
+
+        function add6() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'CBM/CAF'
+            }, 7);
+            theWheel.draw(); // Render changes.
+        }
+
+        function add7() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'CHS'
+            }, 8);
+            theWheel.draw(); // Render changes.
+        }
+        addNull1();
+        add1();
+        add2();
+        add3();
+        add4();
+        add5();
+        add6();
+        add7();
+    }
+
+    function addEmployees() {
+        function addEMP1() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'College EMP'
+            });
+            theWheel.draw(); // Render changes.
+        }
+
+        function addEMP2() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'NTP EMP'
+            });
+            theWheel.draw(); // Render changes.
+        }
+
+        function addEMP3() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'darkgreen',
+                'textFillStyle': 'white',
+                'textFontSize': 10,
+                'text': 'BED/GS/ICD EMP'
+            });
+            theWheel.draw(); // Render changes.
+        }
+
+        function addNull() {
+            $('#addSegment').modal('hide');
+            theWheel.addSegment({
+                'fillStyle': 'white',
+                'textFillStyle': 'darkgreen',
+                'textFontSize': 10,
+                'text': 'NCF'
+            });
+            theWheel.draw(); // Render changes.
+        }
+        addNull();
+        addEMP1();
+        addEMP2();
+        addEMP3();
+
+    }
+    //Remove Section
+    function removeStudents() {
+        $('#removeSegment').modal('hide');
+        theWheel.deleteSegment(1);
+        theWheel.deleteSegment(1);
+        theWheel.deleteSegment(1);
+        theWheel.deleteSegment(1);
+        theWheel.deleteSegment(1);
+        theWheel.deleteSegment(1);
+        theWheel.deleteSegment(1);
+        theWheel.addSegment({
+            'fillStyle': 'white',
+            'textFillStyle': 'darkgreen',
+            'textFontSize': 10,
+            'text': 'NCF'
+        });
+        theWheel.draw();
+    }
+
+    function removeEmployees() {
+        $('#removeSegment').modal('hide');
+        theWheel.deleteSegment();
+        theWheel.deleteSegment();
+        theWheel.deleteSegment();
+        theWheel.addSegment({
+            'fillStyle': 'darkgreen',
+            'textFillStyle': 'white',
+            'textFontSize': 10,
+            'text': 'NCF'
+        });
+        theWheel.draw();
+    }

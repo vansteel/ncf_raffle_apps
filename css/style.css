@@ -6,16 +6,20 @@
 }
 
 #prizePointer{
-    margin-left: 45.5%;
+    margin-left: 45%;
 }
 
 
 #canvasContainer{
     background-image: url('tiger.png');
-    background-size: 175px;
-    background-position-x: center;
-    background-position-y: 212px;
+    background-size: 176px;
+    background-position-x: 170px;
+    background-position-y: 166px;
     background-repeat: no-repeat;
+}
+
+#save_player_name{
+    color: green;
 }
 
 

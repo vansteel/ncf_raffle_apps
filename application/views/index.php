@@ -26,8 +26,9 @@
                         Roulette
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addSegment"><i class="fa fa-plus mr-2"></i>Add</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#removeSegment"><i class="fas fa-remove mr-2"></i>Remove</a>
+                        <a class="dropdown-item" href="#" onclick="studentWheel()"><i class="fas fa-user-alt mr-2"></i>Students</a>
+                        <a class="dropdown-item" href="#" onclick="employeeWheel()"><i class="fas fa-user-tie mr-2"></i>Employees</a>
+                        <a class="dropdown-item" href="#" onclick="allWheel()"><i class="fas fa-users mr-2"></i>Students + Employees</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -58,13 +59,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <!-- Column for wheel -->
-                        <div id="canvasContainer">
+                        <div class="container-fluid">
                             <img id="prizePointer" class="mb-1" src="<?php echo base_url('img/pointer.png'); ?>" />
-                            <canvas id='canvas' class="container-fluid" height="280px">
-                                Canvas not supported, use another browser.
-                            </canvas>
-                            <button id="bigButton" class="btn btn-success" onclick="theWheel.startAnimation(); this.disabled=true;">Spin</button>
-                            <a href="javascript:void(0);" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw();  bigButton.disabled=false;">Reset</a>
+                            <div class="container-fluid" id="canvasContainer">
+                                <canvas id='canvas' width='500' height='500'>
+                                    canvas not supported in your browser
+                                </canvas>
+                            </div>
+                            <!-- <button id="bigButton" class="btn btn-md btn-success" onclick="spin.startAnimation(); this.disabled=true;">Spin</button>
+                            <a href="javascript:void(0);" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw();  bigButton.disabled=false;" class="ml-2">Reset</a> -->
                         </div>
 
                     </div>
@@ -375,7 +378,7 @@
     </div>
 </div>
 
-<!-- Modal for CBA -->
+<!-- Modal for CBM/CAF -->
 <div class="modal fade" id="segment6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -386,7 +389,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>College of Business and Accountancy</h2>
+                <h2>College of Business and Management</h2>
+                <h2>College of Accounting and Finance</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment6()">Draw</button>

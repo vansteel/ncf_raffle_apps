@@ -26,12 +26,10 @@
                         Roulette
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addSegment"><i class="fa fa-plus mr-2"></i>Add</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#removeSegment"><i class="fas fa-remove mr-2"></i>Remove</a>
+                        <a class="dropdown-item" href="#" onclick="studentWheel()"><i class="fas fa-user-alt mr-2"></i>Students</a>
+                        <a class="dropdown-item" href="#" onclick="employeeWheel()"><i class="fas fa-user-tie mr-2"></i>Employees</a>
+                        <a class="dropdown-item" href="#" onclick="allWheel()"><i class="fas fa-users mr-2"></i>Students + Employees</a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="modal" data-target="#modal_add_player">Instruction</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -53,15 +51,17 @@
         <div class="card card-outline card-success">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-5">
                         <!-- Column for wheel -->
-                        <div id="canvasContainer">
+                        <div class="container-fluid">
                             <img id="prizePointer" class="mb-1" src="<?php echo base_url('img/pointer.png'); ?>" />
-                            <canvas id='canvas' class="container-fluid" height="280px">
-                                canvas not supported in your browser
-                            </canvas>
-                            <button id="bigButton" class="btn btn-success" onclick="theWheel.startAnimation(); this.disabled=true;">Spin</button>
-                            <a href="javascript:void(0);" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw();  bigButton.disabled=false;">Reset</a>
+                            <div class="container-fluid" id="canvasContainer">
+                                <canvas id='canvas' width='500' height='500'>
+                                    canvas not supported in your browser
+                                </canvas>
+                            </div>
+                            <!-- <button id="bigButton" class="btn btn-md btn-success" onclick="spin.startAnimation(); this.disabled=true;">Spin</button>
+                            <a href="javascript:void(0);" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw();  bigButton.disabled=false;" class="ml-2">Reset</a> -->
                         </div>
 
                     </div>
@@ -89,7 +89,7 @@
                                                     <th>Department</th>
                                                 </tr>
                                             </thead>
-                                            <tbody >
+                                            <tbody>
                                                 <!-- AJAX HERE -->
                                         </table>
                                     </div>
@@ -102,7 +102,7 @@
                                                     <th>Department</th>
                                                 </tr>
                                             </thead>
-                                            <tbody >
+                                            <tbody>
                                                 <!-- AJAX HERE -->
                                             </tbody>
                                         </table>
@@ -205,12 +205,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>College of Computer Studies</h2>
-                <h2>College of Engineering</h2>
-                <h2>College of Arts and Sciences</h2>
+                <h3>College of Computer Studies</h3>
+                <h3>College of Engineering</h3>
+                <h3>College of Arts and Sciences</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment1()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="select_random_segment1()" accesskey="aaccesskey=" a"">Draw</button>
             </div>
         </div>
     </div>
@@ -227,8 +227,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>College of Teacher Education</h2>
-                <h2>Teacher Certificate Program</h2>
+                <h3>College of Teacher Education</h3>
+                <h3>Teacher Certificate Program</h3>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment2()">Draw</button>
@@ -268,7 +268,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>College of Criminal Justice Education</h2>
+                <h3>College of Criminal Justice Education</h3>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment4()">Draw</button>
@@ -297,7 +297,7 @@
     </div>
 </div>
 
-<!-- Modal for CBA -->
+<!-- Modal for CBM/CAF -->
 <div class="modal fade" id="segment6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -308,7 +308,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>College of Business and Accountancy</h2>
+                <h3>College of Business and Management</h3>
+                <h3>College of Accountancy and Finance</h3>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment6()">Draw</button>
@@ -328,7 +329,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>College of Health and Sciences</h2>
+                <h3>College of Health and Sciences</h3>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment7()">Draw</button>
@@ -388,9 +389,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>Basic Education Employees</h2>
-                <h2>Graduate Studies Employees</h2>
-                <h2>ICD Employees</h2>
+                <h4>Basic Education Employees</h4>
+                <h4>Graduate Studies Employees</h4>
+                <h4>Institute for Career Development Employees</h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="select_random_segment10()">Draw</button>
@@ -410,8 +411,8 @@
                 </button>
             </div>
             <div class="modal-body bg-white">
-                <div id="modal_table1">
-                </div>
+                <table id="modal_table1" style="width: 100%;">
+                </table>
             </div>
             <div class="modal-footer bg-light">
                 <button type="button" onclick="savewinner()" class="btn btn-success text-center">Save</button>

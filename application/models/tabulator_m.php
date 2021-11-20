@@ -221,4 +221,15 @@ class Tabulator_m extends CI_Model
 
         $query = $this->db->query("INSERT INTO winner(player_id,userx_id) VALUES ('$player_id','$userx_id');");
     }
+
+    function segment_name(){
+        $query = $this->db->query("SELECT * FROM typex");
+        return $query->result();
+    }
+
+    function total_segment(){
+        $query = $this->db->query("SELECT count(*) AS counter FROM typex");
+        return $query->result();
+    }
+
 }
