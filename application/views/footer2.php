@@ -17,8 +17,6 @@
                 {
                     data: 'department'
                 }
-
-
             ]
         });
         setInterval(function() {
@@ -47,9 +45,7 @@
                 },
                 {
                     data: 'department'
-                }
-
-
+                },
             ]
         });
         setInterval(function() {
@@ -77,8 +73,8 @@
     }
 
     //Animation Effects
-    //const applause = new Audio();
-    //applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
+    const applause = new Audio();
+    applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
 
     //Assign numSegments from sql
     function countType() {
@@ -115,74 +111,80 @@
     //     return segmentName;
     // }
 
+    //colors for wheel
+    var primary = '#ffff4d';
+    var secondary = '#004d00';
+    var black = 'black';
+
     allWheel();
     //Wheel Functions for All Category
     function allWheel() {
+
         let theWheel = new Winwheel({
             'numSegments': 12,
             'innerRadius': 85,
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'darkgreen',
+            'strokeStyle': 'white',
             'segments': [{
-                    'fillStyle': 'white',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': '' + primary + '',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CCS/COE/CAS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CTED/TCP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'SHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CCJE'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'GS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CBM/CAF'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'College EMP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'NTP EMP'
                 },
                 {
-                    'fillStyle': 'darkgreen',
-                    'textFillStyle': 'white',
+                    'fillStyle': '' + secondary + '',
+                    'textFillStyle': '' + primary + '',
                     'text': 'BED/GS/ICD EMP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'Click to Spin'
                 },
                 {
-                    'fillStyle': 'darkgreen',
-                    'textFillStyle': 'white',
+                    'fillStyle': '' + secondary + '',
+                    'textFillStyle': '' + primary + '',
                     'text': 'NCF'
                 },
             ],
@@ -196,7 +198,7 @@
             {
                 'number': 12,
                 'fillStyle': 'lightgreen',
-                'outerRadius': 4,
+                'outerRadius': 5,
             }
         });
 
@@ -272,45 +274,45 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'darkgreen',
+            'strokeStyle': 'black',
             'segments': [{
-                    'fillStyle': 'white',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ''+primary+'',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'CCS/COE/CAS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'CTED/TCP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'SHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'CCJE'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'GS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'CBM/CAF'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'CHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'Click To Spin'
                 }
             ],
@@ -352,7 +354,7 @@
                 $('#segment7').modal('show');
             } else if (clickedSegment == 8) {
                 theWheel.startAnimation();
-                theWheel.rotationAngle=0;
+                theWheel.rotationAngle = 0;
             }
         }
 
@@ -384,25 +386,25 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'darkgreen',
+            'strokeStyle': 'black',
             'segments': [{
-                    'fillStyle': 'white',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ''+primary+'',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'College EMP'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'NTP EMP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'BED/GS/ICD EMP'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'Click To Spin'
                 },
             ],
@@ -436,7 +438,7 @@
                 $('#segment10').modal('show');
             } else if (clickedSegment == 4) {
                 theWheel.startAnimation();
-                theWheel.rotationAngle=0;
+                theWheel.rotationAngle = 0;
             }
         }
 
@@ -477,12 +479,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -548,12 +550,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -619,12 +621,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -690,12 +692,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -761,12 +763,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -832,12 +834,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -903,12 +905,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -974,12 +976,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -1045,12 +1047,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';
@@ -1116,12 +1118,12 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-12">';
+                                output += '<div class="col-10">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                // output += '<div class="col-2">';
-                                // output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
-                                // output += '</div>';
+                                output += '<div class="col-2">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
                                 output += '</td>';

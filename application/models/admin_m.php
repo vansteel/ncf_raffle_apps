@@ -7,7 +7,6 @@ class Admin_m extends CI_Model
         parent::__construct();
     }
 
-    
     function display_player_list()
     {
         $query = $this->db->query("SELECT p.player_id, p.player_name, t.type_id, t.type_code FROM player p JOIN typex t USING(type_id)");

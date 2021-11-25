@@ -60,8 +60,6 @@
                                     canvas not supported in your browser
                                 </canvas>
                             </div>
-                            <!-- <button id="bigButton" class="btn btn-md btn-success" onclick="spin.startAnimation(); this.disabled=true;">Spin</button>
-                            <a href="javascript:void(0);" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw();  bigButton.disabled=false;" class="ml-2">Reset</a> -->
                         </div>
 
                     </div>
@@ -84,9 +82,9 @@
                                         <table id="player_table" class="table table-sm table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Players</th>
-                                                    <th>Department</th>
+                                                    <th style="width: 10%;">#</th>
+                                                    <th style="width: 60%;">Players</th>
+                                                    <th style="width: 30%;">Department</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -97,9 +95,9 @@
                                         <table id="winner_table" class="table table-sm table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Winners</th>
-                                                    <th>Department</th>
+                                                <th style="width: 10%;">#</th>
+                                                    <th style="width: 60%;">Winners</th>
+                                                    <th style="width: 30%;">Department</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -142,10 +140,10 @@
     <!-- AdminLTE App -->
     <script src="<?php echo base_url('adminlte/dist/js/adminlte.min.js'); ?>"></script>
     <!-- sweetalert -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="<?php echo base_url('js/sweetalert.min.js');?>"></script>
     <!-- Wheel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-    <script src="<?php echo base_url('js/Winwheel.js'); ?>"></script>
+    <script src="<?php echo base_url('js/gsap.min.js');?>"></script>
+    <script src="<?php echo base_url('js/Winwheel.min.js'); ?>"></script>
     <!-- Confetti -->
     <script src="<?php echo base_url('js/confetti.js'); ?>"></script>
 
@@ -155,44 +153,6 @@
 
 
 <!-- ===== This is the Modal ===== -->
-
-<!-- Modal for adding segment in roulette -->
-<div class="modal" id="addSegment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Select Category to Add</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <button class="btn btn-block bg-gradient-success btn-lg" onclick="addStudents()">Students</button>
-                <button class="btn btn-block bg-gradient-success btn-lg" onclick="addEmployees()">Employees</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Modal for adding segment in roulette -->
-
-<!-- Modal for removing segment in roulette -->
-<div class="modal" id="removeSegment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Select Category to Remove</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <button class="btn btn-block bg-gradient-success btn-lg" onclick="removeStudents()">Students</button>
-                <button class="btn btn-block bg-gradient-success btn-lg" onclick="removeEmployees()">Employees</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Modal for removing segment in roulette -->
 
 <!-- Modal for CCS/COE/CAS -->
 <div class="modal fade" id="segment1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -210,7 +170,7 @@
                 <h3>College of Arts and Sciences</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment1()" accesskey="aaccesskey=" a"">Draw</button>
+                <button type="button" class="btn btn-success" onclick="select_random_segment1()">Draw</button>
             </div>
         </div>
     </div>

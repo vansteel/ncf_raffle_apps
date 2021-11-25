@@ -124,74 +124,80 @@
         })
     }
 
+    //colors for wheel
+    var primary = '#ffff4d';
+    var secondary = '#004d00';
+    var black = 'black';
+
     allWheel();
     //Wheel Functions for All Category
     function allWheel() {
+
         let theWheel = new Winwheel({
             'numSegments': 12,
             'innerRadius': 85,
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'darkgreen',
+            'strokeStyle': 'white',
             'segments': [{
-                    'fillStyle': 'white',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': '' + primary + '',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CCS/COE/CAS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CTED/TCP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'SHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CCJE'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'GS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CBM/CAF'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'College EMP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'NTP EMP'
                 },
                 {
-                    'fillStyle': 'darkgreen',
-                    'textFillStyle': 'white',
+                    'fillStyle': '' + secondary + '',
+                    'textFillStyle': '' + primary + '',
                     'text': 'BED/GS/ICD EMP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'Click to Spin'
                 },
                 {
-                    'fillStyle': 'darkgreen',
-                    'textFillStyle': 'white',
+                    'fillStyle': '' + secondary + '',
+                    'textFillStyle': '' + primary + '',
                     'text': 'NCF'
                 },
             ],
@@ -205,7 +211,7 @@
             {
                 'number': 12,
                 'fillStyle': 'lightgreen',
-                'outerRadius': 4,
+                'outerRadius': 5,
             }
         });
 
@@ -281,45 +287,45 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'darkgreen',
+            'strokeStyle': 'black',
             'segments': [{
-                    'fillStyle': 'white',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ''+primary+'',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'CCS/COE/CAS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'CTED/TCP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'SHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'CCJE'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'GS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'CBM/CAF'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'CHS'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'Click To Spin'
                 }
             ],
@@ -361,7 +367,7 @@
                 $('#segment7').modal('show');
             } else if (clickedSegment == 8) {
                 theWheel.startAnimation();
-                theWheel.rotationAngle=0;
+                theWheel.rotationAngle = 0;
             }
         }
 
@@ -393,25 +399,25 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'darkgreen',
+            'strokeStyle': 'black',
             'segments': [{
-                    'fillStyle': 'white',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ''+primary+'',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'College EMP'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'NTP EMP'
                 },
                 {
-                    'fillStyle': ' white ',
-                    'textFillStyle': 'darkgreen',
+                    'fillStyle': ' '+primary+' ',
+                    'textFillStyle': ''+secondary+'',
                     'text': 'BED/GS/ICD EMP'
                 },
                 {
-                    'fillStyle': ' darkgreen ',
-                    'textFillStyle': 'white',
+                    'fillStyle': ' '+secondary+' ',
+                    'textFillStyle': ''+primary+'',
                     'text': 'Click To Spin'
                 },
             ],
@@ -445,7 +451,7 @@
                 $('#segment10').modal('show');
             } else if (clickedSegment == 4) {
                 theWheel.startAnimation();
-                theWheel.rotationAngle=0;
+                theWheel.rotationAngle = 0;
             }
         }
 

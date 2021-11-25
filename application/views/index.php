@@ -87,7 +87,7 @@
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-one-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                                        <table id="player_table" class="table table-sm table-striped" >
+                                        <table id="player_table" class="table table-sm table-striped" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -101,13 +101,13 @@
                                         </table>
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                                        <table id="winner_table" class="table table-sm table-striped" >
+                                        <table id="winner_table" class="table table-sm table-striped" style="width: 100%;" >
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Winners</th>
                                                     <th>Type</th>
-                                                    <th>Action</th>
+                                                    <!-- <th>Action</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody id="display_winner">

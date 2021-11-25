@@ -18,7 +18,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('adminlte/dist/css/adminlte.min.css'); ?>">
     <!-- Animation -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="<?php echo base_url('css/animate.min.css');?>">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo  base_url('css/style.css');?>">
 </head>

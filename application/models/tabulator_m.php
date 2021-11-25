@@ -127,7 +127,6 @@ class Tabulator_m extends CI_Model
         $records = $this->db->get()->result();
 
         $data = array();
-
         foreach ($records as $record) {
 
             $data[] = array(
