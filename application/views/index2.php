@@ -31,6 +31,9 @@
                         <a class="dropdown-item" href="#" onclick="allWheel()"><i class="fas fa-users mr-2"></i>Students + Employees</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="reset()">Reset</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -55,7 +58,7 @@
                         <!-- Column for wheel -->
                         <div class="container-fluid">
                             <img id="prizePointer" class="mb-1" src="<?php echo base_url('img/pointer.png'); ?>" />
-                            <div class="container-fluid" id="canvasContainer">
+                            <div class="container-fluid" id="canvasContainer2">
                                 <canvas id='canvas' width='500' height='500'>
                                     canvas not supported in your browser
                                 </canvas>
@@ -119,7 +122,7 @@
     </footer>
 
     <!--===== Libraries and Plugins =====-->
-
+    
     <!-- jQuery -->
     <script src="<?php echo base_url('adminlte/plugins/jquery/jquery.min.js'); ?>"></script>
     <!-- Bootstrap 4 -->
@@ -142,8 +145,10 @@
     <!-- sweetalert -->
     <script src="<?php echo base_url('js/sweetalert.min.js');?>"></script>
     <!-- Wheel -->
-    <script src="<?php echo base_url('js/gsap.min.js');?>"></script>
     <script src="<?php echo base_url('js/Winwheel.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/gsap.min.js');?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
     <!-- Confetti -->
     <script src="<?php echo base_url('js/confetti.js'); ?>"></script>
 

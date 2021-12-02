@@ -9,12 +9,19 @@
     margin-left: 44.5%;
 }
 
-
 #canvasContainer{
     background-image: url('75-2.png');
-    background-size: 172px;
-    background-position-x: 172px;
+    background-size: 173px;
+    background-position-x: 170px;
     background-position-y: 165px;
+    background-repeat: no-repeat;
+}
+
+#canvasContainer2{
+    background-image: url('tiger-2.png');
+    background-size: 173px;
+    background-position-x: 170px;
+    background-position-y: 166px;
     background-repeat: no-repeat;
 }
 

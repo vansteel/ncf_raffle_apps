@@ -107,7 +107,7 @@
                                                     <th>#</th>
                                                     <th>Winners</th>
                                                     <th>Type</th>
-                                                    <!-- <th>Action</th> -->
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="display_winner">
@@ -152,6 +152,7 @@
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Wheel -->
+    <script src="<?php echo base_url('js/gsap.min.js');?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="<?php echo base_url('js/Winwheel.js'); ?>"></script>
     <!-- Confetti -->

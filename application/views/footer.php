@@ -127,7 +127,7 @@
     //colors for wheel
     var primary = '#ffff4d';
     var secondary = '#004d00';
-    var black = 'black';
+    var stroke = 'silver';
 
     allWheel();
     //Wheel Functions for All Category
@@ -139,7 +139,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'white',
+            'strokeStyle': ''+stroke+'',
             'segments': [{
                     'fillStyle': '' + primary + '',
                     'textFillStyle': '' + secondary + '',
@@ -287,7 +287,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'black',
+            'strokeStyle': ''+stroke+'',
             'segments': [{
                     'fillStyle': ''+primary+'',
                     'textFillStyle': ''+secondary+'',
@@ -399,7 +399,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'black',
+            'strokeStyle': ''+stroke+'',
             'segments': [{
                     'fillStyle': ''+primary+'',
                     'textFillStyle': ''+secondary+'',

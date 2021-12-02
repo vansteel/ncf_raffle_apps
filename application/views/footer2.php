@@ -72,6 +72,44 @@
         music.currentTime = 0;
     }
 
+    //Reset Button
+    function reset() {
+        Swal.fire({
+            title: 'Reset Winner List?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    dataType: "JSON",
+                    url: "<?php echo base_url('Raffle/reset_winner_list'); ?>",
+                    success: function(data) {
+                        //winner_list();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Reset Success',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                    },
+                    error: function(data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                        })
+                    }
+                });
+            }
+        })
+    }
+
     //Animation Effects
     const applause = new Audio();
     applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
@@ -112,9 +150,11 @@
     // }
 
     //colors for wheel
-    var primary = '#ffff4d';
-    var secondary = '#004d00';
-    var black = 'black';
+    //#ffff4d
+    //#004d00
+    var primary = '#006600';
+    var secondary = 'white';
+    var stroke = 'black';
 
     allWheel();
     //Wheel Functions for All Category
@@ -126,7 +166,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'white',
+            'strokeStyle': ''+stroke+'',
             'segments': [{
                     'fillStyle': '' + primary + '',
                     'textFillStyle': '' + secondary + '',
@@ -274,7 +314,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'black',
+            'strokeStyle': ''+stroke+'',
             'segments': [{
                     'fillStyle': ''+primary+'',
                     'textFillStyle': ''+secondary+'',
@@ -386,7 +426,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': 'black',
+            'strokeStyle': ''+stroke+'',
             'segments': [{
                     'fillStyle': ''+primary+'',
                     'textFillStyle': ''+secondary+'',
