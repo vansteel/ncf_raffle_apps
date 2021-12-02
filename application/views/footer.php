@@ -64,7 +64,7 @@
 
     //Background Music
     const music = new Audio();
-    music.src = "<?php echo base_url('audio/music_draw.mp3'); ?>";
+    music.src = "<?php echo base_url('audio/bg-music-free.mp3'); ?>";
     music.loop;
     music.volume = 0.1;
 
@@ -83,7 +83,7 @@
 
     //Animation Effects
     const applause = new Audio();
-    applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
+    applause.src = "<?php echo base_url('audio/applause-free.mp3'); ?>";
 
     //Reset Button
     function reset() {

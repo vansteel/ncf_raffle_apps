@@ -55,7 +55,7 @@
 
     //Background Music
     const music = new Audio();
-    music.src = "<?php echo base_url('audio/music_draw.mp3'); ?>";
+    music.src = "<?php echo base_url('audio/bg-music-free.mp3'); ?>";
     music.volume = 0.1;
 
     function play_music() {
@@ -112,7 +112,7 @@
 
     //Animation Effects
     const applause = new Audio();
-    applause.src = "<?php echo base_url('audio/applause.mp3'); ?>";
+    applause.src = "<?php echo base_url('audio/applause-free.mp3'); ?>";
 
     //Assign numSegments from sql
     function countType() {
