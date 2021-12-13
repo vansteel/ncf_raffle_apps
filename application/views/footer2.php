@@ -56,7 +56,7 @@
     //Background Music
     const music = new Audio();
     music.src = "<?php echo base_url('audio/bg-music-free.mp3'); ?>";
-    music.volume = 0.1;
+    music.volume = 0.5;
 
     function play_music() {
         music.play();
@@ -152,6 +152,7 @@
     //colors for wheel
     //#ffff4d
     //#004d00
+    //#064518
     var primary = '#006600';
     var secondary = 'white';
     var stroke = 'black';
@@ -166,7 +167,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': ''+stroke+'',
+            'strokeStyle': '' + stroke + '',
             'segments': [{
                     'fillStyle': '' + primary + '',
                     'textFillStyle': '' + secondary + '',
@@ -232,7 +233,9 @@
                 'type': 'spinToStop',
                 'duration': 5,
                 'spins': 8,
-                'callbackFinished': alertPrize
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound, // Called when the tick sound is to be played.
+                'soundTrigger': 'pin' // Specify pins are to trigger the sound.
             },
             'pins': // Turn pins on.
             {
@@ -241,6 +244,19 @@
                 'outerRadius': 5,
             }
         });
+
+        // Loads the tick audio sound in to an audio object.
+        let audio = new Audio('<?php echo base_url('audio/tick.mp3'); ?>');
+
+        // This function is called when the sound is to be played.
+        function playSound() {
+            // Stop and rewind the sound if it already happens to be playing.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Play the sound.
+            audio.play();
+        }
 
         // Get canvas and span objects.
         let canvas = document.getElementById('canvas');
@@ -311,48 +327,48 @@
         let theWheel = new Winwheel({
             'numSegments': 8,
             'innerRadius': 85,
-            'textFontSize': 15,
+            'textFontSize': 16,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': ''+stroke+'',
+            'strokeStyle': '' + stroke + '',
             'segments': [{
-                    'fillStyle': ''+primary+'',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': '' + primary + '',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CCS/COE/CAS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CTED/TCP'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'SHS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CCJE'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'GS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CBM/CAF'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CHS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'Click To Spin'
                 }
             ],
@@ -360,7 +376,9 @@
                 'type': 'spinToStop',
                 'duration': 5,
                 'spins': 8,
-                'callbackFinished': alertPrize
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound, // Called when the tick sound is to be played.
+                'soundTrigger': 'pin' // Specify pins are to trigger the sound.
             },
             'pins': // Turn pins on.
             {
@@ -369,6 +387,19 @@
                 'outerRadius': 4,
             }
         });
+
+        // Loads the tick audio sound in to an audio object.
+        let audio = new Audio('<?php echo base_url('audio/tick.mp3'); ?>');
+
+        // This function is called when the sound is to be played.
+        function playSound() {
+            // Stop and rewind the sound if it already happens to be playing.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Play the sound.
+            audio.play();
+        }
 
         // Get canvas and span objects.
         let canvas = document.getElementById('canvas');
@@ -426,25 +457,25 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': ''+stroke+'',
+            'strokeStyle': '' + stroke + '',
             'segments': [{
-                    'fillStyle': ''+primary+'',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': '' + primary + '',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'College EMP'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'NTP EMP'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'BED/GS/ICD EMP'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'Click To Spin'
                 },
             ],
@@ -452,7 +483,9 @@
                 'type': 'spinToStop',
                 'duration': 5,
                 'spins': 8,
-                'callbackFinished': alertPrize
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound, // Called when the tick sound is to be played.
+                'soundTrigger': 'pin' // Specify pins are to trigger the sound.
             },
             'pins': // Turn pins on.
             {
@@ -461,6 +494,19 @@
                 'outerRadius': 4,
             }
         });
+
+        // Loads the tick audio sound in to an audio object.
+        let audio = new Audio('<?php echo base_url('audio/tick.mp3'); ?>');
+
+        // This function is called when the sound is to be played.
+        function playSound() {
+            // Stop and rewind the sound if it already happens to be playing.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Play the sound.
+            audio.play();
+        }
 
         // Get canvas and span objects.
         let canvas = document.getElementById('canvas');
@@ -494,12 +540,19 @@
         }
     }
 
+    let suspense = new Audio('<?php echo base_url('audio/suspense.m4a');?>')
+            function play(){
+                //suspense.play();
+            }
+
     //Select random player from segment 1
     function select_random_segment1() {
         $('#segment1').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -519,11 +572,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -552,25 +605,27 @@
             setTimeout(function() {
                 confetti.start()
                 applause.play()
-            }, 0001); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
         };
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
-
     }
 
     //Select random player from segment 2
     function select_random_segment2() {
         $('#segment2').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -590,11 +645,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -628,8 +683,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -640,8 +697,9 @@
     function select_random_segment3() {
         $('#segment3').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -661,11 +719,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -699,8 +757,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -711,8 +771,9 @@
     function select_random_segment4() {
         $('#segment4').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -732,11 +793,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -770,8 +831,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -782,8 +845,9 @@
     function select_random_segment5() {
         $('#segment5').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -803,11 +867,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -841,8 +905,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -853,8 +919,9 @@
     function select_random_segment6() {
         $('#segment6').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -874,11 +941,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -912,8 +979,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -924,8 +993,9 @@
     function select_random_segment7() {
         $('#segment7').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -945,11 +1015,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -983,8 +1053,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -995,8 +1067,9 @@
     function select_random_segment8() {
         $('#segment8').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -1016,11 +1089,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -1054,8 +1127,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -1066,8 +1141,9 @@
     function select_random_segment9() {
         $('#segment9').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -1087,11 +1163,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -1125,8 +1201,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();
@@ -1137,8 +1215,9 @@
     function select_random_segment10() {
         $('#segment10').modal('hide');
         $('#mymodal1').modal('show');
-        for (var time = 0; time < 35; time++) {
+        for (var time = 0; time < 40; time++) {
             var interval = 0;
+            play();
             start();
 
             function start() {
@@ -1158,11 +1237,11 @@
                                 output += '<div class="">';
                                 output += '<input class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_player_id" value="' + data[i].player_id + '" readonly >';
                                 output += '</div>';
-                                output += '<div class="col-10">';
+                                output += '<div class="col">';
                                 output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash text-center" type="text" id="save_player_name" value="' + data[i].player_name + '" style="font-size:36px;">';
                                 output += '</div>';
-                                output += '<div class="col-2">';
-                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="text" id="save_type_code" value="' + data[i].type_code + '">';
+                                output += '<div class="">';
+                                output += '<input readonly class="form-control-plaintext animate__animated animate__infinite animate__flash" type="hidden" id="save_type_code" value="' + data[i].type_code + '">';
                                 output += '</div>';
                                 output += '</div>';
                                 output += '</form>';
@@ -1196,8 +1275,10 @@
         //  Stop
         const stopA = () => {
             setTimeout(function() {
+                suspense.pause()
+                suspense.currentTime = 0;
                 confetti.stop()
-            }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+            }, 8000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
         };
         startA();
         stopA();

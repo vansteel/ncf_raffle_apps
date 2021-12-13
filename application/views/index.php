@@ -61,7 +61,7 @@
                         <!-- Column for wheel -->
                         <div class="container-fluid">
                             <img id="prizePointer" class="mb-1" src="<?php echo base_url('img/pointer.png'); ?>" />
-                            <div class="container-fluid" id="canvasContainer">
+                            <div class="container-fluid" id="canvasContainer2">
                                 <canvas id='canvas' width='500' height='500'>
                                     canvas not supported in your browser
                                 </canvas>

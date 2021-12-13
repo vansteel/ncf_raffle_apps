@@ -124,10 +124,9 @@
         })
     }
 
-    //colors for wheel
-    var primary = '#ffff4d';
-    var secondary = '#004d00';
-    var stroke = 'silver';
+    var primary = '#006600';
+    var secondary = 'white';
+    var stroke = 'black';
 
     allWheel();
     //Wheel Functions for All Category
@@ -139,7 +138,7 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': ''+stroke+'',
+            'strokeStyle': '' + stroke + '',
             'segments': [{
                     'fillStyle': '' + primary + '',
                     'textFillStyle': '' + secondary + '',
@@ -205,7 +204,9 @@
                 'type': 'spinToStop',
                 'duration': 5,
                 'spins': 8,
-                'callbackFinished': alertPrize
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound, // Called when the tick sound is to be played.
+                'soundTrigger': 'pin' // Specify pins are to trigger the sound.
             },
             'pins': // Turn pins on.
             {
@@ -214,6 +215,19 @@
                 'outerRadius': 5,
             }
         });
+
+        // Loads the tick audio sound in to an audio object.
+        let audio = new Audio('<?php echo base_url('audio/tick.mp3'); ?>');
+
+        // This function is called when the sound is to be played.
+        function playSound() {
+            // Stop and rewind the sound if it already happens to be playing.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Play the sound.
+            audio.play();
+        }
 
         // Get canvas and span objects.
         let canvas = document.getElementById('canvas');
@@ -287,45 +301,45 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': ''+stroke+'',
+            'strokeStyle': '' + stroke + '',
             'segments': [{
-                    'fillStyle': ''+primary+'',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': '' + primary + '',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CCS/COE/CAS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CTED/TCP'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'SHS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CCJE'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'GS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'CBM/CAF'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'CHS'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'Click To Spin'
                 }
             ],
@@ -333,7 +347,9 @@
                 'type': 'spinToStop',
                 'duration': 5,
                 'spins': 8,
-                'callbackFinished': alertPrize
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound, // Called when the tick sound is to be played.
+                'soundTrigger': 'pin' // Specify pins are to trigger the sound.
             },
             'pins': // Turn pins on.
             {
@@ -342,6 +358,19 @@
                 'outerRadius': 4,
             }
         });
+
+        // Loads the tick audio sound in to an audio object.
+        let audio = new Audio('<?php echo base_url('audio/tick.mp3'); ?>');
+
+        // This function is called when the sound is to be played.
+        function playSound() {
+            // Stop and rewind the sound if it already happens to be playing.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Play the sound.
+            audio.play();
+        }
 
         // Get canvas and span objects.
         let canvas = document.getElementById('canvas');
@@ -399,25 +428,25 @@
             'textFontSize': 15,
             'textAlignment': 'center',
             'textFontFamily': 'Arial',
-            'strokeStyle': ''+stroke+'',
+            'strokeStyle': '' + stroke + '',
             'segments': [{
-                    'fillStyle': ''+primary+'',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': '' + primary + '',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'College EMP'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'NTP EMP'
                 },
                 {
-                    'fillStyle': ' '+primary+' ',
-                    'textFillStyle': ''+secondary+'',
+                    'fillStyle': ' ' + primary + ' ',
+                    'textFillStyle': '' + secondary + '',
                     'text': 'BED/GS/ICD EMP'
                 },
                 {
-                    'fillStyle': ' '+secondary+' ',
-                    'textFillStyle': ''+primary+'',
+                    'fillStyle': ' ' + secondary + ' ',
+                    'textFillStyle': '' + primary + '',
                     'text': 'Click To Spin'
                 },
             ],
@@ -425,7 +454,9 @@
                 'type': 'spinToStop',
                 'duration': 5,
                 'spins': 8,
-                'callbackFinished': alertPrize
+                'callbackFinished': alertPrize,
+                'callbackSound': playSound, // Called when the tick sound is to be played.
+                'soundTrigger': 'pin' // Specify pins are to trigger the sound.
             },
             'pins': // Turn pins on.
             {
@@ -434,6 +465,19 @@
                 'outerRadius': 4,
             }
         });
+
+        // Loads the tick audio sound in to an audio object.
+        let audio = new Audio('<?php echo base_url('audio/tick.mp3'); ?>');
+
+        // This function is called when the sound is to be played.
+        function playSound() {
+            // Stop and rewind the sound if it already happens to be playing.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Play the sound.
+            audio.play();
+        }
 
         // Get canvas and span objects.
         let canvas = document.getElementById('canvas');

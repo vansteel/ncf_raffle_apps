@@ -170,12 +170,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>College of Computer Studies</h3>
-                <h3>College of Engineering</h3>
-                <h3>College of Arts and Sciences</h3>
+                <h3 class="py-1">College of Computer Studies</h3>
+                <h3 class="py-1">College of Engineering</h3>
+                <h3 class="py-1">College of Arts and Sciences</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment1()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play(); select_random_segment1();">Draw</button>
             </div>
         </div>
     </div>
@@ -192,11 +192,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>College of Teacher Education</h3>
-                <h3>Teacher Certificate Program</h3>
+                <h3 class="py-1">College of Teacher Education</h3>
+                <h3 class="py-1">Teacher Certificate Program</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment2()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment2()">Draw</button>
             </div>
         </div>
     </div>
@@ -213,10 +213,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>Senior High School</h2>
+                <h2 class="py-1">Senior High School</h2>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment3()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment3()">Draw</button>
             </div>
         </div>
     </div>
@@ -233,10 +233,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>College of Criminal Justice Education</h3>
+                <h3 class="py-1">College of Criminal Justice Education</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment4()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment4()">Draw</button>
             </div>
         </div>
     </div>
@@ -253,10 +253,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>Graduate Studies</h2>
+                <h2 class="py-1">Graduate Studies</h2>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment5()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment5()">Draw</button>
             </div>
         </div>
     </div>
@@ -273,11 +273,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>College of Business and Management</h3>
-                <h3>College of Accountancy and Finance</h3>
+                <h3 class="py-1">College of Business and Management</h3>
+                <h3 class="py-1">College of Accountancy and Finance</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment6()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment6()">Draw</button>
             </div>
         </div>
     </div>
@@ -294,10 +294,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>College of Health and Sciences</h3>
+                <h3 class="py-1">College of Health and Sciences</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment7()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment7()">Draw</button>
             </div>
         </div>
     </div>
@@ -314,10 +314,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>College Employees</h1>
+                <h1 class="py-1">College Employees</h1>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment8()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment8()">Draw</button>
             </div>
         </div>
     </div>
@@ -334,10 +334,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>Non Teaching Personnel</h1>
+                <h1 class="py-1">Non Teaching Personnel</h1>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment9()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment9()">Draw</button>
             </div>
         </div>
     </div>
@@ -354,12 +354,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h4>Basic Education Employees</h4>
-                <h4>Graduate Studies Employees</h4>
-                <h4>Institute for Career Development Employees</h4>
+                <h4 class="py-1">Basic Education Employees</h4>
+                <h4 class="py-1">Graduate Studies Employees</h4>
+                <h4 class="py-1">Institute for Career Development Employees</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="select_random_segment10()">Draw</button>
+                <button type="button" class="btn btn-success" onclick="play();select_random_segment10()">Draw</button>
             </div>
         </div>
     </div>
